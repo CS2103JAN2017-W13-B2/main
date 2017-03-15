@@ -51,22 +51,17 @@ Format: help
 ## 2.2. Adding a task: `add`
 
 Adds a task to task list
-<<<<<<< HEAD
-Format: add TASKNAME -d DATE [-o DESCRIPTION] [-p]
-=======
-Format: add TASKNAME dl/DATE [ds/DESCRIPTION] [-p]
->>>>>>> origin/master
+Format: add TASKNAME dl/DATE [ds/DESCRIPTION]
 
 Examples:
 
-* `add Make payment dl/01/08/2017 ds/Pay credit card bills -p`
+* `add Make payment dl/01/08/2017 ds/Pay credit card bills`
 * `add Complete project dl/12/12/2017`
 
 ## 2.3. Modifying a task: `edit`
 
 Updates an existing task in the task list
-Format: update INDEX [-n TASKNAME] [-d DATE] [-o DESCRIPTION] [-p]
-Format: edit INDEX [TASKNAME] [dl/DATE] [ds/DESCRIPTION] [-p]
+Format: edit INDEX [TASKNAME] [dl/DATE] [ds/DESCRIPTION]
 
 Examples:
 
@@ -134,18 +129,24 @@ There is no need to manually save the data
 
 ## 3. FAQ
 
+**Q**: Where do I download the Task Manager Application?<br>
+**A**: The Application can be found at https://github.com/CS2103Jan2017-W13-B2/main to download.
+
+**Q**: Why can't the Application start?<br>
+**A**: Make sure Java version `1.8.0_60` or later is installed in your Computer.
+
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with
-       the file that contains the data of your previous Address Book folder.
+       the file that contains the data of your previous Task Manager folder.
 
 ## 4. Command Summary
 
 * **Help** : `help`
 
-* **Add**  `add TASKNAME dl/DATE [ds/DESCRIPTION] [-p]` <br>
-  e.g. `add Make payment dl/01-08-2017 ds/Pay credit card bills -p`
+* **Add**  `add TASKNAME dl/DATE [ds/DESCRIPTION]` <br>
+  e.g. `add Make payment dl/01-08-2017 ds/Pay credit card bills`
 
-* **Update** : `update INDEX [TASKNAME] [dl/DATE] [ds/DESCRIPTION] [-p]` <br>
+* **Update** : `edit INDEX [TASKNAME] [dl/DATE] [ds/DESCRIPTION]` <br>
   e.g. `update 3 buy eggs dl/29-02-2017 ds/as soon as possible`
 
 * **Delete** : `delete INDEX` <br>
