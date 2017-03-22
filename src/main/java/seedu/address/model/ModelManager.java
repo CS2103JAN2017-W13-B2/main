@@ -120,6 +120,10 @@ public class ModelManager extends ComponentManager implements Model {
         filteredTasks.setPredicate(expression::satisfies);
     }
 
+    public void updateFilteredTaskListByDate(String deadline) {
+        updateFilteredTaskList(new PredicateExpression(new TaskQualifierByDate(deadline)));
+    }
+
     //========== Inner classes/interfaces used for filtering =================================================
 
     interface Expression {
@@ -167,17 +171,30 @@ public class ModelManager extends ComponentManager implements Model {
                     || (keyWords.stream()
                        .filter(keyword -> StringUtil.containsWordIgnoreCase(task.getDescription().description, keyword))
                        .findAny()
-                       .isPresent())
-                    || (keyWords.stream()
-                            .filter(keyword -> StringUtil.containsWordIgnoreCase(
-                                    task.getDeadline().date.toString(), keyword))
-                            .findAny()
-                            .isPresent());
+                       .isPresent());
         }
 
         @Override
         public String toString() {
             return "name=" + String.join(", ", keyWords);
+        }
+    }
+
+    private class TaskQualifierByDate implements Qualifier {
+        private String deadline;
+
+        TaskQualifierByDate(String deadline) {
+            this.deadline = deadline;
+        }
+
+        @Override
+        public boolean run(ReadOnlyTask task) {
+            return task.getDeadline().date.toString().contains(deadline);
+        }
+
+        @Override
+        public String toString() {
+            return "name=" + String.join(", ", deadline);
         }
     }
 

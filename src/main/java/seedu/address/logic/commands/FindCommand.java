@@ -1,6 +1,10 @@
 package seedu.address.logic.commands;
 
+import java.util.HashSet;
 import java.util.Set;
+import java.util.StringTokenizer;
+
+import seedu.address.commons.exceptions.IllegalValueException;
 
 /**
  * Finds and lists all tasks in address book whose name or description contains any of the argument keywords.
@@ -16,15 +20,28 @@ public class FindCommand extends Command {
             + "Example: " + COMMAND_WORD + " alice bob charlie";
 
     private final Set<String> keywords;
+    private final String deadline;
 
-    public FindCommand(Set<String> keywords) {
-        this.keywords = keywords;
+    public FindCommand(String keywords, String deadline)
+            throws IllegalValueException {
+        final Set<String> keywordSet = new HashSet<>();
+        StringTokenizer st = new StringTokenizer(keywords, " ");
+        while (st.hasMoreTokens()) {
+            keywordSet.add(st.nextToken());
+        }
+        this.keywords = keywordSet;
+        this.deadline = deadline;
     }
 
     @Override
     public CommandResult execute() {
-        model.updateFilteredTaskList(keywords);
-        return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
+        if (!keywords.isEmpty()) {
+            model.updateFilteredTaskList(keywords);
+            return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
+        } else {
+            model.updateFilteredTaskList(deadline);
+            return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
+        }
     }
 
 }
