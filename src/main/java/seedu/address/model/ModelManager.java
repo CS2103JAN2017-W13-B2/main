@@ -10,6 +10,7 @@ import seedu.address.commons.core.UnmodifiableObservableList;
 import seedu.address.commons.events.model.TaskManagerChangedEvent;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.model.task.Deadline;
 import seedu.address.model.task.ReadOnlyTask;
 import seedu.address.model.task.Task;
 import seedu.address.model.task.TaskList.TaskNotFoundException;
@@ -112,16 +113,17 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public void updateFilteredTaskList(Set<String> keywords) {
+    public void updateFilteredTaskListByName(Set<String> keywords) {
         updateFilteredTaskList(new PredicateExpression(new TaskQualifier(keywords)));
+    }
+
+    @Override
+    public void updateFilteredTaskListByDate(Deadline deadline) {
+        updateFilteredTaskList(new PredicateExpression(new TaskQualifierByDate(deadline)));
     }
 
     private void updateFilteredTaskList(Expression expression) {
         filteredTasks.setPredicate(expression::satisfies);
-    }
-
-    public void updateFilteredTaskListByDate(String deadline) {
-        updateFilteredTaskList(new PredicateExpression(new TaskQualifierByDate(deadline)));
     }
 
     //========== Inner classes/interfaces used for filtering =================================================
@@ -181,20 +183,20 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     private class TaskQualifierByDate implements Qualifier {
-        private String deadline;
+        private Deadline deadline;
 
-        TaskQualifierByDate(String deadline) {
+        TaskQualifierByDate(Deadline deadline) {
             this.deadline = deadline;
         }
 
         @Override
         public boolean run(ReadOnlyTask task) {
-            return task.getDeadline().date.toString().contains(deadline);
+            return task.getDeadline().date.equals(deadline);
         }
 
         @Override
         public String toString() {
-            return "name=" + String.join(", ", deadline);
+            return "name=" + String.join(", ", deadline.toString());
         }
     }
 
