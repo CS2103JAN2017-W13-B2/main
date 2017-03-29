@@ -21,7 +21,8 @@ public class FindCommand extends Command {
             + "Example: " + COMMAND_WORD + " alice bob charlie";
 
     private final Set<String> keywords;
-    private final Deadline deadline;
+    //private final Deadline deadline;
+    private final Set<String> description;
 
     public FindCommand(String keywords, String deadline)
             throws IllegalValueException {
@@ -31,16 +32,24 @@ public class FindCommand extends Command {
             keywordSet.add(st.nextToken());
         }
         this.keywords = keywordSet;
-        this.deadline = CreateDeadline(deadline);
+        //this.deadline = CreateDeadline(deadline);
+        final Set<String> descSet = new HashSet<>();
+        StringTokenizer st2 = new StringTokenizer(deadline, " ");
+        while (st2.hasMoreTokens()) {
+            descSet.add(st2.nextToken());
+        }
+        description = descSet;
+
     }
 
     @Override
     public CommandResult execute() {
-        if (!keywords.isEmpty()) {
+        if (!keywords.equals("")) {
             model.updateFilteredTaskListByName(keywords);
             return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
         } else {
-            model.updateFilteredTaskListByDate(deadline);
+            model.updateFilteredTaskListByName(description);
+            //model.updateFilteredTaskListByDate(deadline);
             return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
         }
     }

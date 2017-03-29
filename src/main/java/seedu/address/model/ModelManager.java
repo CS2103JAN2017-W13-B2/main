@@ -191,7 +191,7 @@ public class ModelManager extends ComponentManager implements Model {
 
         @Override
         public boolean run(ReadOnlyTask task) {
-            return task.getDeadline().date.equals(deadline);
+            return task.getDeadline().equals(deadline);
         }
 
         @Override
