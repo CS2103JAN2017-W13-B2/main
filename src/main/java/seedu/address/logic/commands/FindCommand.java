@@ -31,7 +31,7 @@ public class FindCommand extends Command {
             keywordSet.add(st.nextToken());
         }
         this.keywords = keywordSet;
-        this.deadline = CreateDeadline(deadline);
+        this.deadline = createDeadline(deadline);
 
     }
 
@@ -46,7 +46,7 @@ public class FindCommand extends Command {
         }
     }
 
-    public Deadline CreateDeadline(String deadline) throws IllegalValueException {
+    public Deadline createDeadline(String deadline) throws IllegalValueException {
         return (deadline == null ? new Deadline() : new Deadline(deadline));
     }
 
