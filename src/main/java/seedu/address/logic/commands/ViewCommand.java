@@ -1,3 +1,4 @@
+//@@author A0144885R
 package seedu.address.logic.commands;
 
 import java.util.ArrayList;
@@ -67,6 +68,7 @@ public class ViewCommand extends Command {
 
     @Override
     public CommandResult execute() throws CommandException {
+        model.updateFilteredListToShowAll();
         EventsCenter.getInstance().post(new ChangeViewRequestEvent(viewGroups));
         return new CommandResult(String.format(MESSAGE_SUCCESS, String.join("|", viewGroups)));
     }
