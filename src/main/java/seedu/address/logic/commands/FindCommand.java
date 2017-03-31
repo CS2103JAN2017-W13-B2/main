@@ -26,24 +26,24 @@ public class FindCommand extends Command {
     public FindCommand(String keywords, String deadline)
             throws IllegalValueException {
         final Set<String> keywordSet = new HashSet<>();
-        StringTokenizer st = new StringTokenizer(keywords, " ");
-        while (st.hasMoreTokens()) {
-            keywordSet.add(st.nextToken());
+        if (!keywords.equals("")) {
+            StringTokenizer st = new StringTokenizer(keywords, " ");
+            while (st.hasMoreTokens()) {
+                keywordSet.add(st.nextToken());
+            }
         }
         this.keywords = keywordSet;
         this.deadline = createDeadline(deadline);
-
     }
 
     @Override
     public CommandResult execute() {
-        if (!keywords.equals("")) {
+        if (!keywords.isEmpty()) {
             model.updateFilteredTaskListByName(keywords);
-            return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
-        } else {
+        } else if (deadline != null) {
             model.updateFilteredTaskListByDate(deadline);
-            return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
         }
+        return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
     }
 
     public Deadline createDeadline(String deadline) throws IllegalValueException {

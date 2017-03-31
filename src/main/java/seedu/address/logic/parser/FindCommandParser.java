@@ -23,7 +23,7 @@ public class FindCommandParser {
         argsTokenizer.tokenize(args);
 
         String name = argsTokenizer.getPreamble().orElse("");
-        String deadline = argsTokenizer.getValue(PREFIX_DEADLINE).orElse("");
+        String deadline = argsTokenizer.getValue(PREFIX_DEADLINE).orElse(null);
 
         // add format here
         try {
