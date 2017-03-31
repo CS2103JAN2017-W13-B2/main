@@ -10,6 +10,7 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.UnmodifiableObservableList;
 import seedu.address.commons.events.model.TaskManagerChangedEvent;
 import seedu.address.commons.util.CollectionUtil;
+import seedu.address.commons.util.DateUtil;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.model.task.Deadline;
 import seedu.address.model.task.ReadOnlyTask;
@@ -192,7 +193,7 @@ public class ModelManager extends ComponentManager implements Model {
 
         @Override
         public boolean run(ReadOnlyTask task) {
-            return task.getDeadline().equals(deadline);
+            return DateUtil.isDeadlineMatch(task.getDeadline(), deadline);
         }
 
         @Override
