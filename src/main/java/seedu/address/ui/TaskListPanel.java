@@ -20,6 +20,7 @@ import javafx.scene.layout.VBox;
 
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.ui.ChangeViewRequestEvent;
+import seedu.address.commons.events.ui.ExpandingEvent;
 import seedu.address.commons.util.FxViewUtil;
 import seedu.address.model.task.ReadOnlyTask;
 import seedu.address.model.task.Status;
@@ -58,6 +59,7 @@ public class TaskListPanel extends UiPart<Region> {
     private double lastScrollPosition;
 
     private ObservableList<ReadOnlyTask> taskList;
+    private List<String> statusList;
 
     private ListChangeListener taskListListener;
 
@@ -73,7 +75,12 @@ public class TaskListPanel extends UiPart<Region> {
         this.taskList = taskList;
     }
 
+    public void setStatusList(List<String> statusList) {
+        this.statusList = statusList;
+    }
+
     private void viewTasksWithStatus(List<String> statusList) {
+        setStatusList(statusList);
         initTaskListsByStatus(statusList);
         createTaskListView(statusList);
 
@@ -155,10 +162,13 @@ public class TaskListPanel extends UiPart<Region> {
 
     /**
      * Instantiate TaskGroupPanel objects and add them to taskListView.
+     *
+     * The last group that is non-empty will be expanded
      */
     private void createTaskListView(List<String> statusList) {
         taskListView.getChildren().clear();
         childGroupMap = new HashMap<String, TaskGroupPanel>();
+        TaskGroupPanel lastOne = null;
 
         for (String status : statusList) {
             // Create new task group & add them to current view.
@@ -168,6 +178,14 @@ public class TaskListPanel extends UiPart<Region> {
 
             childGroupMap.put(status, taskGroupPanel);
             taskListView.getChildren().add(taskGroupPanel.getRoot());
+            if (!taskIndexList.isEmpty()) {
+                lastOne = taskGroupPanel;
+            }
+        }
+
+        // Expand the last group that is non-empty
+        if (lastOne != null) {
+            lastOne.openTitlePane();
         }
     }
 
@@ -188,6 +206,18 @@ public class TaskListPanel extends UiPart<Region> {
     }
 
     @Subscribe
+    private void handleExpandingEvent(ExpandingEvent event) {
+        int groupIndex = event.groupIndex;
+        logger.info("User expand group by key combination: Alt + " + groupIndex);
+        // groupIndex is in 1-based index, convert to 0-based
+        if (groupIndex >= 1 && groupIndex <= statusList.size()) {
+            String groupName = statusList.get(groupIndex - 1);
+            TaskGroupPanel group = childGroupMap.get(groupName);
+            group.openTitlePane();
+        }
+    }
+
+    @Subscribe
     private void handleChangeViewRequestEvent(ChangeViewRequestEvent event) {
         ArrayList<String> groupsToView = new ArrayList<String>();
         for (String group : event.viewGroups) {
@@ -199,6 +229,7 @@ public class TaskListPanel extends UiPart<Region> {
             }
         }
         viewTasksWithStatus(removeDuplicateViews(groupsToView));
+        logger.info("View changed to " + String.join("|", groupsToView));
     }
 
 }

@@ -9,8 +9,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
+import seedu.address.commons.core.EventsCenter;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.events.ui.ExpandingEvent;
 import seedu.address.commons.events.ui.NewResultAvailableEvent;
+import seedu.address.commons.events.ui.ScrollingEvent;
 import seedu.address.commons.util.FxViewUtil;
 import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
@@ -36,6 +39,7 @@ public class CommandBox extends UiPart<Region> {
         // Preempt history with empty string
         history.add(EMPTY_STRING);
         addToPlaceholder(commandBoxPlaceholder);
+        registerAsAnEventHandler(this);
     }
 
     private void addToPlaceholder(AnchorPane placeHolderPane) {
@@ -46,27 +50,61 @@ public class CommandBox extends UiPart<Region> {
     }
 
     //@@author A0144885R
+    /**
+     * List of key events that commandbox handles:
+     * - Alt + Number key: Change expanded group
+     * - UP, DOWN: Change to previously typed inputs
+     * - PAGEUP, PAGEDOWN: Scroll expanded group up and down
+     */
     @FXML
     private void handleKeyReleased(KeyEvent event) {
-        switch (event.getCode()) {
+        if (event.isAltDown()) {
+            if (event.getCode().isDigitKey()) {
+                String keyCode = event.getCode().toString();
+                int key = keyCode.charAt(keyCode.length() - 1) - '0';
+                changeExpandedGroup(key);
+            }
+        } else {
+            switch (event.getCode()) {
 
-        case UP:
-        case KP_UP:
-            moveUpHistoryStack();
-            break;
+            case UP:
+            case KP_UP:
+                moveUpHistoryStack();
+                break;
 
-        case DOWN:
-        case KP_DOWN:
-            moveDownHistoryStack();
-            break;
+            case DOWN:
+            case KP_DOWN:
+                moveDownHistoryStack();
+                break;
 
-        case ENTER:
-            handleInputEntered();
-            break;
+            case PAGE_UP:
+                broadcastPageUpEvents();
+                break;
 
-        default:
-            break;
+            case PAGE_DOWN:
+                broadcastPageDownEvents();
+                break;
+
+            case ENTER:
+                handleInputEntered();
+                break;
+
+            default:
+                break;
+            }
         }
+    }
+
+    private void changeExpandedGroup(int groupIndex) {
+        EventsCenter.getInstance().post(new ExpandingEvent(groupIndex));
+    }
+
+    private void broadcastPageUpEvents() {
+        EventsCenter.getInstance().post(new ScrollingEvent(ScrollingEvent.SCROLL_UP));
+    }
+
+    private void broadcastPageDownEvents() {
+        EventsCenter.getInstance().post(new ScrollingEvent(ScrollingEvent.SCROLL_DOWN));
     }
 
     private void moveUpHistoryStack() {
