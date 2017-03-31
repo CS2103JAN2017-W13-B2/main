@@ -1,6 +1,9 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
+
+import java.util.NoSuchElementException;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.Command;
@@ -22,12 +25,12 @@ public class FindCommandParser {
                 new ArgumentTokenizer(PREFIX_DEADLINE);
         argsTokenizer.tokenize(args);
 
-        String name = argsTokenizer.getPreamble().orElse("");
-        String deadline = argsTokenizer.getValue(PREFIX_DEADLINE).orElse(null);
-
-        // add format here
         try {
-            return new FindCommand(name, deadline);
+            return new FindCommand(
+                    argsTokenizer.getPreamble().orElse(""),
+                    argsTokenizer.getValue(PREFIX_DEADLINE).orElse(null));
+        } catch (NoSuchElementException nsee) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         } catch (IllegalValueException ive) {
             return new IncorrectCommand(ive.getMessage());
         }
