@@ -10,6 +10,7 @@ import seedu.address.model.task.Deadline;
 /**
  * Finds and lists all tasks in address book whose name or description contains any of the argument keywords.
  * Keyword matching is case insensitive.
+ * Finds and lists all tasks in address book whose deadline coincides with given deadline
  */
 public class FindCommand extends Command {
 
