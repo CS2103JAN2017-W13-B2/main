@@ -84,7 +84,7 @@ public class ModelManager extends ComponentManager implements Model {
         taskManager.updateTask(taskManagerIndex, editedTask);
         indicateTaskManagerChanged();
     }
-
+  //@@author A0143504R
     public TaskManager getCopy() {
         return taskManagerCopy;
     }
@@ -100,7 +100,7 @@ public class ModelManager extends ComponentManager implements Model {
     public String getFlag() {
         return this.flag;
     }
-
+    //
     //=========== Filtered Task List Accessors =============================================================
 
     @Override
