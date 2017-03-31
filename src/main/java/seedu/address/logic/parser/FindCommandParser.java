@@ -1,13 +1,11 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.KEYWORDS_ARGS_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DEADLINE;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.regex.Matcher;
+import java.util.NoSuchElementException;
 
+import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.IncorrectCommand;
@@ -22,16 +20,21 @@ public class FindCommandParser {
      * and returns an FindCommand object for execution.
      */
     public Command parse(String args) {
-        final Matcher matcher = KEYWORDS_ARGS_FORMAT.matcher(args.trim());
-        if (!matcher.matches()) {
-            return new IncorrectCommand(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+        assert args != null;
+        ArgumentTokenizer argsTokenizer =
+                new ArgumentTokenizer(PREFIX_DEADLINE);
+        argsTokenizer.tokenize(args);
+
+        try {
+            return new FindCommand(
+                    argsTokenizer.getPreamble().orElse(""),
+                    argsTokenizer.getValue(PREFIX_DEADLINE).orElse(null));
+        } catch (NoSuchElementException nsee) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+        } catch (IllegalValueException ive) {
+            return new IncorrectCommand(ive.getMessage());
         }
 
-        // keywords delimited by whitespace
-        final String[] keywords = matcher.group("keywords").split("\\s+");
-        final Set<String> keywordSet = new HashSet<>(Arrays.asList(keywords));
-        return new FindCommand(keywordSet);
     }
 
 }
