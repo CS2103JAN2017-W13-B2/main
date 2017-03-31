@@ -39,7 +39,7 @@ public class FindCommand extends Command {
     @Override
     public CommandResult execute() {
         if (!keywords.isEmpty()) {
-            model.updateFilteredTaskListByName(keywords);
+            model.updateFilteredTaskListByKeywords(keywords);
         } else if (deadline != null) {
             model.updateFilteredTaskListByDate(deadline);
         }

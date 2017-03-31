@@ -40,8 +40,9 @@ public interface Model {
     void updateFilteredListToShowAll();
 
     /** Updates the filter of the filtered task list to filter by the given keywords*/
-    void updateFilteredTaskListByName(Set<String> keywords);
+    void updateFilteredTaskListByKeywords(Set<String> keywords);
 
+    /** Updates the filter of the filtered task list to filter by the given deadline*/
     void updateFilteredTaskListByDate(Deadline deadline);
 
     /** Updates undo copy of task list*/
