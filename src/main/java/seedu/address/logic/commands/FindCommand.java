@@ -1,6 +1,11 @@
 package seedu.address.logic.commands;
 
+import java.util.HashSet;
 import java.util.Set;
+import java.util.StringTokenizer;
+
+import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.task.Deadline;
 
 /**
  * Finds and lists all tasks in address book whose name or description contains any of the argument keywords.
@@ -16,15 +21,41 @@ public class FindCommand extends Command {
             + "Example: " + COMMAND_WORD + " alice bob charlie";
 
     private final Set<String> keywords;
+    //private final Deadline deadline;
+    private final Set<String> description;
 
-    public FindCommand(Set<String> keywords) {
-        this.keywords = keywords;
+    public FindCommand(String keywords, String deadline)
+            throws IllegalValueException {
+        final Set<String> keywordSet = new HashSet<>();
+        StringTokenizer st = new StringTokenizer(keywords, " ");
+        while (st.hasMoreTokens()) {
+            keywordSet.add(st.nextToken());
+        }
+        this.keywords = keywordSet;
+        //this.deadline = CreateDeadline(deadline);
+        final Set<String> descSet = new HashSet<>();
+        StringTokenizer st2 = new StringTokenizer(deadline, " ");
+        while (st2.hasMoreTokens()) {
+            descSet.add(st2.nextToken());
+        }
+        description = descSet;
+
     }
 
     @Override
     public CommandResult execute() {
-        model.updateFilteredTaskList(keywords);
-        return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
+        if (!keywords.equals("")) {
+            model.updateFilteredTaskListByName(keywords);
+            return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
+        } else {
+            model.updateFilteredTaskListByName(description);
+            //model.updateFilteredTaskListByDate(deadline);
+            return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
+        }
+    }
+
+    public Deadline CreateDeadline(String deadline) throws IllegalValueException {
+        return (deadline == null ? new Deadline() : new Deadline(deadline));
     }
 
 }
