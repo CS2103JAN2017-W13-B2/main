@@ -5,6 +5,10 @@ By : `Team SE-EDU`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Jun 2016`  &nbsp;&nbsp;&nbs
 ---
 
 1. [Setting Up](#setting-up)
+1.1. [Prerequisites](#)
+1.2. [Importing the project into Eclipse](#)
+1.3. [Configuring Checkstyle](#)
+1.4. [Troubleshooting project setup](#)
 2. [Design](#design)
 3. [Implementation](#implementation)
 4. [Testing](#testing)
