@@ -146,12 +146,10 @@ public class TaskListPanel extends UiPart<Region> {
             if (taskListMap.containsKey(taskStatus)) {
                 taskListMap.get(taskStatus).add(task);
                 taskIndexMap.get(taskStatus).add(index);
-            }
-            if (taskListMap.containsKey(ALL_TASKS)) {
+            } else if (taskListMap.containsKey(ALL_TASKS)) {
                 taskListMap.get(ALL_TASKS).add(task);
                 taskIndexMap.get(ALL_TASKS).add(index);
-            }
-            if (taskListMap.containsKey(UNFINISHED) && taskStatus != Status.DONE) {
+            } else if (taskListMap.containsKey(UNFINISHED) && taskStatus != Status.DONE) {
                 taskListMap.get(UNFINISHED).add(task);
                 taskIndexMap.get(UNFINISHED).add(index);
             }
