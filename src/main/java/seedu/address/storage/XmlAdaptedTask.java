@@ -68,7 +68,7 @@ public class XmlAdaptedTask {
         final Name name = new Name(this.name);
         final Deadline deadline = (!this.deadline.equals("Unassigned") ? new Deadline(this.deadline) : new Deadline());
         final Description description = new Description(this.description);
-        final Status status = new Status(this.status);
+        final Status status = (this.status != null) ? new Status(this.status) : new Status();
         final UniqueTagList tags = new UniqueTagList(taskTags);
         return new Task(name, deadline, description, status, tags);
     }
