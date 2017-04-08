@@ -3,6 +3,7 @@ package seedu.address.model.task;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -23,7 +24,7 @@ public class DateUtilTest {
             assertFalse(DateUtil.isDeadlineMatch(task, floating));  // Test if params order matters
             assertFalse(DateUtil.isDeadlineMatch(event, floating));
         } catch (IllegalValueException e) {
-            assertTrue(false);
+            fail("IllegalValueException caught");
         }
     }
 
@@ -48,7 +49,7 @@ public class DateUtilTest {
             // Task & event
             assertTrue(DateUtil.isDeadlineMatch(event1, task1));
         } catch (IllegalValueException e) {
-            assertTrue(false);
+            fail("IllegalValueException caught");
         }
     }
 
@@ -67,7 +68,7 @@ public class DateUtilTest {
             Deadline event2 = new Deadline("from 10-3-1997 to 20-3-2007");
             assertFalse(DateUtil.isDeadlineMatch(event1, event2));
         } catch (IllegalValueException e) {
-            assertTrue(false);
+            fail("IllegalValueException caught");
         }
     }
 }
