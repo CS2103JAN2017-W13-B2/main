@@ -4,13 +4,13 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import seedu.address.logic.commands.ClearCommand;
 import seedu.address.commons.core.Messages;
+import seedu.address.logic.commands.ClearCommand;
+import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.MarkCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.testutil.TestTask;
-import seedu.address.logic.commands.DeleteCommand;
 
 public class UndoCommandTest extends TaskManagerGuiTest {
 
@@ -82,6 +82,15 @@ public class UndoCommandTest extends TaskManagerGuiTest {
     public void undoInvalidCommand() {
         commandBox.runCommand("undoo");
         assertResultMessage(String.format(Messages.MESSAGE_UNKNOWN_COMMAND));
+    }
+
+    /**
+     * Tries to undo a command without any previous commands
+     */
+    @Test
+    public void undoWithoutPreviousCommand() {
+        commandBox.runCommand(UndoCommand.COMMAND_WORD);
+        assertResultMessage(String.format(UndoCommand.MESSAGE_NO_CHANGE));
     }
 
     private void assertUndoSuccess(TestTask[] expectedList) {
