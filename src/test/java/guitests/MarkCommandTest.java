@@ -6,7 +6,7 @@ import static seedu.address.logic.commands.MarkCommand.MESSAGE_MARK_TASK_SUCCESS
 
 import org.junit.Test;
 
-import seedu.address.commons.core.Messages;
+import guitests.guihandles.TaskCardHandle;
 import seedu.address.logic.commands.MarkCommand;
 import seedu.address.testutil.TestTask;
 
@@ -18,13 +18,14 @@ public class MarkCommandTest extends TaskManagerGuiTest {
     TestTask[] expectedTasksList = td.getTypicalTasks();
 
     @Test
-    public void sort() {
+    public void mark() {
 
         //mark the first in the list from Undone to Done
         int targetIndex = 1;
         assertMarkSuccess(targetIndex, expectedTasksList);
 
         //mark the first in the list from Done to Undone
+        expectedTasksList[targetIndex - 1].setStatus("Done");
         assertMarkSuccess(targetIndex, expectedTasksList);
 
         //mark the last in the list from Undone to Done
@@ -32,6 +33,7 @@ public class MarkCommandTest extends TaskManagerGuiTest {
         assertMarkSuccess(targetIndex, expectedTasksList);
 
         //mark the last in the list from Done to Undone
+        expectedTasksList[targetIndex - 1].setStatus("Done");
         assertMarkSuccess(targetIndex, expectedTasksList);
 
         //mark from the middle of the list from Undone to Done
@@ -39,6 +41,7 @@ public class MarkCommandTest extends TaskManagerGuiTest {
         assertMarkSuccess(targetIndex, expectedTasksList);
 
         //mark from the middle of the list from Done to Undone
+        expectedTasksList[targetIndex - 1].setStatus("Done");
         assertMarkSuccess(targetIndex, expectedTasksList);
 
         //invalid index
@@ -56,7 +59,7 @@ public class MarkCommandTest extends TaskManagerGuiTest {
     @Test
     public void mark_invalidTaskIndex_failure() {
         commandBox.runCommand("mark 8 Bobby");
-        assertResultMessage(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
+        assertResultMessage(String.format(MESSAGE_INVALID_COMMAND_FORMAT, MarkCommand.MESSAGE_USAGE));
     }
     /**
      * Checks whether the edited task has the correct updated details.
@@ -68,17 +71,21 @@ public class MarkCommandTest extends TaskManagerGuiTest {
      * @param editedTask the expected task after editing the task's details
      */
     private void assertMarkSuccess(int targetIndexOneIndexed, final TestTask[] currentList) {
-        TestTask taskToMark = currentList[targetIndexOneIndexed - 1]; // -1 as array uses zero indexing
+        TestTask taskToMark = new TestTask(currentList[targetIndexOneIndexed - 1]); // -1 as array uses zero indexing
         //TestTask[] expectedRemainder = TestUtil.removeTaskFromList(currentList, targetIndexOneIndexed);
 
         commandBox.runCommand("mark " + targetIndexOneIndexed);
 
+        // confirm the new card contains the right data
+        TaskCardHandle markedCard = taskListPanel.getTaskCardWithID(targetIndexOneIndexed);
+        assertMatching(taskToMark, markedCard);
+
         //confirm the list now contains all previous tasks except the deleted task
-        assertTrue(taskToMark.getStatus().status.equals("Done")  ?
-                !currentList[targetIndexOneIndexed - 1].getStatus().status.equals("Done") :
-                currentList[targetIndexOneIndexed - 1].getStatus().status.equals("Done"));
+        assertTrue(markedCard.getStatus().equals("Done")  ?
+                !taskToMark.getStatus().status.equals("Done") :
+                    taskToMark.getStatus().status.equals("Done"));
 
         //confirm the result message is correct
-        assertResultMessage(String.format(MESSAGE_MARK_TASK_SUCCESS, currentList[targetIndexOneIndexed - 1]));
+        assertResultMessage(String.format(MESSAGE_MARK_TASK_SUCCESS, markedCard.getAsText()));
     }
 }

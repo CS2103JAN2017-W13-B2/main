@@ -40,7 +40,7 @@ public class Status {
     public static final String TOMORROW = "Tomorrow";
     public static final String FUTURE = "Future";
 
-    public final String status;
+    public String status;
 
     public Status() {
         status = UNDONE;
@@ -91,6 +91,10 @@ public class Status {
     @Override
     public int hashCode() {
         return status.hashCode();
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }
