@@ -89,6 +89,15 @@ public class RedoCommandTest extends TaskManagerGuiTest {
     }
 
     /**
+     * Tries to redo a command without a previous undo
+     */
+    @Test
+    public void redoWithoutUndo() {
+        commandBox.runCommand(RedoCommand.COMMAND_WORD);
+        assertResultMessage(String.format(RedoCommand.MESSAGE_NO_CHANGE));
+    }
+
+    /**
      * Runs redo command and checks whether the current list matches the expected list
      * @param currentList list before redo command is carried out
      * @param expectedList list after redo command is carried out
