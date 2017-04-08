@@ -418,7 +418,8 @@ public class LogicManagerTest {
         helper.addToModel(model, 2);
         array = model.getList();
 
-        assertEquals(array, arrayToCompare);
+        assertEquals(array.get(0).getAsText(), arrayToCompare.get(0).getAsText());
+        assertEquals(array.get(1).getAsText(), arrayToCompare.get(1).getAsText());
 
     }
 
