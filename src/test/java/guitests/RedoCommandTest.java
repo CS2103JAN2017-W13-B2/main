@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.testutil.TestTask;
@@ -17,6 +18,7 @@ public class RedoCommandTest extends TaskManagerGuiTest {
 
     public void redo() {
         redoAdd();
+        redoDelete();
     }
 
     /**
@@ -28,6 +30,18 @@ public class RedoCommandTest extends TaskManagerGuiTest {
         commandBox.runCommand(taskToAdd.getAddCommand());
         commandBox.runCommand(UndoCommand.COMMAND_WORD);
         expectedList = TestUtil.addTasksToList(expectedList, taskToAdd);
+        assertRedoSuccess(currentList, expectedList);
+    }
+
+    /**
+     * Tries to redo a delete command
+     */
+    @Test
+    public void redoDelete() {
+        int targetIndex = 1;
+        commandBox.runCommand(DeleteCommand.COMMAND_WORD + " " + targetIndex);
+        commandBox.runCommand(UndoCommand.COMMAND_WORD);
+        expectedList = TestUtil.removeTaskFromList(expectedList, targetIndex);
         assertRedoSuccess(currentList, expectedList);
     }
 
