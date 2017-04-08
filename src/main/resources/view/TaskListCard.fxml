@@ -43,7 +43,7 @@
 						<Label fx:id="description" styleClass="cell_small_label" text="\$description" />
 					</children>
 				</HBox>
-				<FlowPane HBox.hgrow="ALWAYS" hgap="5" minWidth="600">
+				<FlowPane HBox.hgrow="ALWAYS" hgap="8" minWidth="600">
 					<children>
 						<ImageView id="deadline_icon" fitHeight="14" fitWidth="14">
 							<image>
@@ -53,7 +53,7 @@
 						<Label fx:id="deadline" styleClass="cell_small_label" text="\$deadline" />
 					</children>
 				</FlowPane>
-				<FlowPane HBox.hgrow="ALWAYS" hgap="5">
+				<FlowPane HBox.hgrow="ALWAYS" hgap="8">
 					<padding>
 						<Insets top="5"/>
 					</padding>
@@ -66,7 +66,7 @@
 						<Label fx:id="status" styleClass="cell_small_label" text="\$status" />
 					</children>
 				</FlowPane>
-				<FlowPane fx:id="tags">
+				<FlowPane HBox.hgrow="ALWAYS" hgap="5">
 					<padding>
 						<Insets top="7"/>
 					</padding>
@@ -76,6 +76,10 @@
 								<Image url="@../images/tag.png" />
 							</image>
 						</ImageView>
+						<FlowPane fx:id="tags">
+							<children>
+							</children>
+						</FlowPane>
 					</children>
 				</FlowPane>
 			</children>
