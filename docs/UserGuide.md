@@ -93,13 +93,18 @@ Format: list
 Changes the type of view seen on the task manager so that you can 
 better differentiate the time that the task is due. The tasks are 
 seperated based on the status of the task. The statuses of the tasks, 
-if are still not done, are based on the time left to their due date.<br>
-Format: view all|calendar|done|floating|overdue|today|tomorrow|future
+if are still not done, are based on the time left to their due date.
+You can specify which tabs you want to see on the screen by entering
+the name of the tab together with the command.<br>
+Format: view [all|calendar|done|floating|overdue|today|tomorrow|future]
 
 Examples:
 
+* `view`
 * `view all`
-* `view floating`
+* `view today tomorrow`
+* `view overdue future`
+   > <img src="images/UserGuideView.png" width="600">
 
 ## 3.5. Modifying a task: `edit`
 
@@ -163,20 +168,36 @@ Examples:
 
 ## 3.11. Clearing all entries : `clear`
 
-Clears your list of tasks to start from a clean slate. Be warned, once deleted, the tasks are lost forever (unless you use the undo command).<br>
-Format: clear
+Clears your list of tasks to start from a clean slate or remove all tasks that have been marked as done. Be warned, once deleted, the tasks are lost forever (unless you use the undo command).<br>
+Format: clear all|done
 
-## 3.12. Saving the data
+Examples:
+
+* `clear all`
+* `clear done`
+
+## 3.12. Sorting the list of tasks : `sort`
+
+Arranges your tasks in chronological order.<br>
+Format: sort name|deadline
+
+Examples:
+
+* `sort name`
+* `sort deadline`
+
+## 3.13. Saving the data
 
 Application data are saved onto hard drive automatically after any commands are executed that changes the data.
-There is no need to manually save the data. However, you can change the location of the storage file that holds the data for Docket.<br>
+There is no need to manually save the data. However, you can change the location of the storage file that holds the data for Docket. This command creates a new file if the 
+file name is not specified.<br>
 Format: set-storage STORAGE_LOCATION
 
 Examples:
 
-* `set-storage C:\Users\Public\Documents\Data`
+* `set-storage C:\Users\Public\Documents\Data\taskmanager.xml`
 
-## 3.13. Exiting the program : `exit`
+## 3.14. Exiting the program : `exit`
 
 When you are tired and want to stop tracking tasks for the day, 
 use this command to exit the program. <br>
@@ -207,7 +228,7 @@ Format: exit
 
 * **List** : `list` <br>
 
-* **View** : `view all|calendar|done|floating|overdue|today|tomorrow|future` <br>
+* **View** : `view [all|calendar|done|floating|overdue|today|tomorrow|future]` <br>
   e.g. `view all`
   
 * **Edit** : `edit INDEX [TASKNAME] [dl/DATE] [ds/DESCRIPTION]` <br>
@@ -226,6 +247,13 @@ Format: exit
 * **Mark** : `mark INDEX` <br>
   e.g. `mark 4`
 
-* **Clear** : `clear` <br>
+* **Clear** : `clear all|done` <br>
+  e.g. `clear all`
+
+* **Sort** : `sort name|deadline` <br>
+  e.g. `sort deadline`
+
+* **Set Storage** : `set-storage STORAGE_LOCATION` <br>
+  e.g. `set-storage C:\Users\Public\Documents\Data\taskmanager.xml`
 
 * **Exit** : `exit` <br>
