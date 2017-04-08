@@ -16,14 +16,6 @@ public class RedoCommandTest extends TaskManagerGuiTest {
 
     TestTask[] expectedList = td.getTypicalTasks();
 
-    public void redo() {
-        redoAdd();
-
-        redoDelete();
-
-        redoClear();
-    }
-
     /**
      * Tries to redo an add command
      */
