@@ -60,7 +60,24 @@ public class UiColor {
                     random.nextInt(COLOR_RANGE));
             return (color.isDarkColor() ? color : color.mixWith(BLACK));
         } else {
+            if (currentColorIndex == 0) {
+                // Shuffle color list on first access
+                shufflePalette();
+            }
             return palette[currentColorIndex++];
+        }
+    }
+
+    public static void shufflePalette() {
+        Random random = new Random();
+        for (int i = 0;  i < palette.length;  i++) {
+            int color1 = random.nextInt(palette.length);
+            int color2 = random.nextInt(palette.length);
+
+            // Swap
+            UiColor temp = palette[color1];
+            palette[color1] = palette[color2];
+            palette[color2] = temp;
         }
     }
 
