@@ -132,6 +132,10 @@ public class UniqueTagList implements Iterable<Tag> {
         tags.forEach(this::add);
     }
 
+    public boolean isEmpty() {
+        return internalList.isEmpty();
+    }
+
     @Override
     public Iterator<Tag> iterator() {
         return internalList.iterator();

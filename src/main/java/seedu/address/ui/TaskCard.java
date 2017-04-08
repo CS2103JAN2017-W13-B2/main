@@ -31,6 +31,8 @@ public class TaskCard extends UiPart<Region> {
     @FXML
     private Label status;
     @FXML
+    private FlowPane tagsHolder;
+    @FXML
     private FlowPane tags;
 
     public TaskCard(ReadOnlyTask task, int displayedIndex) {
@@ -46,6 +48,10 @@ public class TaskCard extends UiPart<Region> {
 
     //@@author A0144885R
     private void initTags(ReadOnlyTask task) {
+        if (task.getTags().isEmpty()) {
+            tagsHolder.getChildren().clear();
+            return;
+        }
         for (Tag tag : task.getTags()) {
             // Get color of this tag or randomly create a new one
             UiColor tagColor = (tagColorMap.containsKey(tag.tagName) ?
