@@ -49,8 +49,7 @@ on simplifying the way you handle tasks now.
 > * Items in `SQUARE_BRACKETS` are optional.
 > * Items with `...` after them can have multiple instances.
 > * Parameters can be in any order.
-> * Date has to be in the format DD-MM-YYYY
-> * Time has to be in the format <INSERT TIME FORMAT HERE>
+> * Date and time can be in natural language format
 
 ## 3.1. Viewing help : `help`
 
@@ -203,8 +202,16 @@ When you are tired and want to stop tracking tasks for the day,
 use this command to exit the program. <br>
 Format: exit
 
+## 4. Keyboard shortcuts
 
-## 4. FAQ
+Learn keyboard shortcuts to make your work with Docket much more efficient and productive.
+
+1. `UP`, `DOWN`:  Views previously typed commands
+2. `Alt + 1`, `Alt + 2`, ..., `Alt + 9`:  Expands task lists
+3. `PAGE UP`, `PAGE DOWN`:  Scrolls up and down the list of tasks
+
+
+## 5. FAQ
 
 **Q**: Where do I download the Task Manager Application?<br>
 **A**: The Application can be found at https://github.com/CS2103JAN2017-W13-B2/main to download.
@@ -219,21 +226,21 @@ Format: exit
 **A**: Install the app in the other computer and overwrite the empty data file it creates with
        the file that contains the data of your previous Task Manager folder.
 
-## 5. Command Summary
+## 6. Command Summary
 
 Command|Format|Example
 -------|:-----|:------
 **Help**|`help`|`add Make payment dl/01-08-2017  ds/Pay credit card bills`
 **Add**|`add TASKNAME dl/DATE [ds/DESCRIPTION]`|
 **List**|`list`|
-**View**|`view [all|calendar|done|floating| overdue|today|tomorrow|future]`|`view all`
+**View**|`view [all,calendar,done,floating,overdue,today,tomorrow,future,unfinished]`|`view all`
 **Edit**|`edit INDEX [TASKNAME] [dl/DATE] [ds/DESCRIPTION]`|`edit 3 buy eggs dl/29-02-2017 ds/as soon as possible`
 **Delete**|`delete INDEX`|`delete 3`
 **Undo**|`undo`|
 **Redo**|`redo`|
 **Find**|`find [KEYWORDS] [ds/KEYWORDS] [dl/DATE]`|`find James Jake`
 **Mark**|`mark INDEX`|`mark 4`
-**Clear**|`clear all|done`|`clear all`
-**Sort**|`sort name|deadline`|`sort deadline`
+**Clear**|`clear [all,done]`|`clear all`
+**Sort**|`sort [name,deadline]`|`sort deadline`
 **Set Storage**|`set-storage STORAGE_LOCATION`|`set-storage C:\Users\Public\Documents\Data\ taskmanager.xml`
 **Exit**|`exit`|
