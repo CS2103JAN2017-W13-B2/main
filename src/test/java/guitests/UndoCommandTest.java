@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import seedu.address.logic.commands.ClearCommand;
-import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.MarkCommand;
 import seedu.address.logic.commands.UndoCommand;
@@ -73,6 +73,15 @@ public class UndoCommandTest extends TaskManagerGuiTest {
         commandBox.runCommand(EditCommand.COMMAND_WORD + " " + targetIndex + " " + detailsToEdit);
 
         assertUndoSuccess(expectedList);
+    }
+
+    /**
+     * Tries to undo a command with an invalid command word
+     */
+    @Test
+    public void undoInvalidCommand() {
+        commandBox.runCommand("undoo");
+        assertResultMessage(String.format(Messages.MESSAGE_UNKNOWN_COMMAND));
     }
 
     private void assertUndoSuccess(TestTask[] expectedList) {
