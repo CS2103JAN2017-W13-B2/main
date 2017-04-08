@@ -7,8 +7,9 @@ By : `W13-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Jun 2016`  &nbsp;&nbsp;&nbsp;&nb
 1. [About](#user-content-1-about)
 2. [Quick Start](#user-content-2-quick-start)
 3. [Features](#user-content-3-features)
-4. [FAQ](#user-content-4-faq)
-5. [Command Summary](#user-content-5-command-summary)
+4. [Keyboard Shortcuts](#user-content-4-keyboard-shortcuts)
+5. [FAQ](#user-content-5-faq)
+6. [Command Summary](#user-content-6-command-summary)
 
 ## 1. About
 Ever had the feeling that you are forgetting to do something important? Tired of always
