@@ -99,6 +99,5 @@ public class UndoCommandTest extends TaskManagerGuiTest {
         assertResultMessage(String.format(UndoCommand.MESSAGE_SUCCESS));
 
     }
-
 }
 
