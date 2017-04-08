@@ -18,7 +18,7 @@ import seedu.address.testutil.TestUtil;
 
 public class RedoCommandTest extends TaskManagerGuiTest {
 
-    TestTask[] expectedList = td.getTypicalTasks();
+    private TestTask[] expectedList = td.getTypicalTasks();
 
     /**
      * Tries to redo an add command
