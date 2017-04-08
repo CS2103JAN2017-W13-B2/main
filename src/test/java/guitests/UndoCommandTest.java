@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.testutil.TestTask;
-import seedu.address.testutil.TestUtil;
+import seedu.address.logic.commands.DeleteCommand;
 
 public class UndoCommandTest extends TaskManagerGuiTest {
 
@@ -19,6 +19,17 @@ public class UndoCommandTest extends TaskManagerGuiTest {
     public void undoAdd() {
         TestTask taskToAdd = td.alice;
         commandBox.runCommand(taskToAdd.getAddCommand());
+        assertUndoSuccess(expectedList);
+    }
+
+    /**
+     * Tries to undo a delete command
+     */
+    @Test
+    public void undoDelete() {
+        int targetIndex = 1;
+        commandBox.runCommand(DeleteCommand.COMMAND_WORD + " " + targetIndex);
+
         assertUndoSuccess(expectedList);
     }
 
