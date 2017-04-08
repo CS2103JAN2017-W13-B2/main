@@ -42,7 +42,6 @@ import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
 import seedu.address.model.task.Deadline;
 import seedu.address.model.task.Description;
-import seedu.address.model.task.IdentificationNumber;
 import seedu.address.model.task.Name;
 import seedu.address.model.task.ReadOnlyTask;
 import seedu.address.model.task.Task;
@@ -402,6 +401,27 @@ public class LogicManagerTest {
                 expectedList);
     }
 
+    @Test
+    public void returnListAsArray() throws Exception {
+        ArrayList<ReadOnlyTask> array;
+        array = model.getList();
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        TaskManager expectedAB = helper.generateTaskManager(2);
+        List<? extends ReadOnlyTask> expectedList = expectedAB.getTaskList();
+
+        ArrayList<ReadOnlyTask> arrayToCompare = new ArrayList<>();
+        for (ReadOnlyTask task : expectedList) {
+            arrayToCompare.add(task);
+        }
+        // prepare address book state
+        helper.addToModel(model, 2);
+        array = model.getList();
+
+        assertEquals(array.get(0).getAsText(), arrayToCompare.get(0).getAsText());
+        assertEquals(array.get(1).getAsText(), arrayToCompare.get(1).getAsText());
+
+    }
 
     /**
      * A utility class to generate test data.
@@ -527,8 +547,7 @@ public class LogicManagerTest {
             return new Task(
                     new Name(name),
                     new Deadline("11/11/1111"),
-                    new Description("some desceiption"),
-                    new IdentificationNumber("123")
+                    new Description("some desceiption")
             );
         }
     }

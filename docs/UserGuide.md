@@ -4,11 +4,12 @@ By : `W13-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Jun 2016`  &nbsp;&nbsp;&nbsp;&nb
 
 ---
 
-1. [About](#about)
-2. [Quick Start](#quick-start)
-3. [Features](#features)
-4. [FAQ](#faq)
-5. [Command Summary](#command-summary)
+1. [About](#user-content-1-about)
+2. [Quick Start](#user-content-2-quick-start)
+3. [Features](#user-content-3-features)
+4. [Keyboard Shortcuts](#user-content-4-keyboard-shortcuts)
+5. [FAQ](#user-content-5-faq)
+6. [Command Summary](#user-content-6-command-summary)
 
 ## 1. About
 Ever had the feeling that you are forgetting to do something important? Tired of always
@@ -49,8 +50,7 @@ on simplifying the way you handle tasks now.
 > * Items in `SQUARE_BRACKETS` are optional.
 > * Items with `...` after them can have multiple instances.
 > * Parameters can be in any order.
-> * Date has to be in the format DD-MM-YYYY
-> * Time has to be in the format <INSERT TIME FORMAT HERE>
+> * Date and time can be in natural language format
 
 ## 3.1. Viewing help : `help`
 
@@ -93,13 +93,18 @@ Format: list
 Changes the type of view seen on the task manager so that you can 
 better differentiate the time that the task is due. The tasks are 
 seperated based on the status of the task. The statuses of the tasks, 
-if are still not done, are based on the time left to their due date.<br>
-Format: view all|calendar|done|floating|overdue|today|tomorrow|future
+if are still not done, are based on the time left to their due date.
+You can specify which tabs you want to see on the screen by entering
+the name of the tab together with the command.<br>
+Format: view [all|calendar|done|floating|overdue|today|tomorrow|future]
 
 Examples:
 
+* `view`
 * `view all`
-* `view floating`
+* `view today tomorrow`
+* `view overdue future`
+   > <img src="images/UserGuideView.png" width="600">
 
 ## 3.5. Modifying a task: `edit`
 
@@ -163,27 +168,51 @@ Examples:
 
 ## 3.11. Clearing all entries : `clear`
 
-Clears your list of tasks to start from a clean slate. Be warned, once deleted, the tasks are lost forever (unless you use the undo command).<br>
-Format: clear
+Clears your list of tasks to start from a clean slate or remove all tasks that have been marked as done. Be warned, once deleted, the tasks are lost forever (unless you use the undo command).<br>
+Format: clear all|done
 
-## 3.12. Saving the data
+Examples:
+
+* `clear all`
+* `clear done`
+
+## 3.12. Sorting the list of tasks : `sort`
+
+Arranges your tasks in chronological order.<br>
+Format: sort name|deadline
+
+Examples:
+
+* `sort name`
+* `sort deadline`
+
+## 3.13. Saving the data
 
 Application data are saved onto hard drive automatically after any commands are executed that changes the data.
-There is no need to manually save the data. However, you can change the location of the storage file that holds the data for Docket.<br>
+There is no need to manually save the data. However, you can change the location of the storage file that holds the data for Docket. This command creates a new file if the 
+file name is not specified.<br>
 Format: set-storage STORAGE_LOCATION
 
 Examples:
 
-* `set-storage C:\Users\Public\Documents\Data`
+* `set-storage C:\Users\Public\Documents\Data\taskmanager.xml`
 
-## 3.13. Exiting the program : `exit`
+## 3.14. Exiting the program : `exit`
 
 When you are tired and want to stop tracking tasks for the day, 
 use this command to exit the program. <br>
 Format: exit
 
+## 4. Keyboard shortcuts
 
-## 4. FAQ
+Learn keyboard shortcuts to make your work with Docket much more efficient and productive.
+
+1. `UP`, `DOWN`:  Views previously typed commands
+2. `Alt + 1`, `Alt + 2`, ..., `Alt + 9`:  Expands task lists
+3. `PAGE UP`, `PAGE DOWN`:  Scrolls up and down the list of tasks
+
+
+## 5. FAQ
 
 **Q**: Where do I download the Task Manager Application?<br>
 **A**: The Application can be found at https://github.com/CS2103JAN2017-W13-B2/main to download.
@@ -198,34 +227,21 @@ Format: exit
 **A**: Install the app in the other computer and overwrite the empty data file it creates with
        the file that contains the data of your previous Task Manager folder.
 
-## 5. Command Summary
+## 6. Command Summary
 
-* **Help** : `help`
-
-* **Add**  `add TASKNAME dl/DATE [ds/DESCRIPTION]` <br>
-  e.g. `add Make payment dl/01-08-2017 ds/Pay credit card bills`
-
-* **List** : `list` <br>
-
-* **View** : `view all|calendar|done|floating|overdue|today|tomorrow|future` <br>
-  e.g. `view all`
-  
-* **Edit** : `edit INDEX [TASKNAME] [dl/DATE] [ds/DESCRIPTION]` <br>
-  e.g. `edit 3 buy eggs dl/29-02-2017 ds/as soon as possible`
-
-* **Delete** : `delete INDEX` <br>
-   e.g. `delete 3`
-   
-* **Undo** : `undo` <br>
-
-* **Redo** : `redo` <br> 
-
-* **Find** : `find [KEYWORDS] [ds/KEYWORDS] [dl/DATE]` <br>
-  e.g. `find James Jake`
-
-* **Mark** : `mark INDEX` <br>
-  e.g. `mark 4`
-
-* **Clear** : `clear` <br>
-
-* **Exit** : `exit` <br>
+Command|Format|Example
+-------|:-----|:------
+**Help**|`help`|`add Make payment dl/01-08-2017  ds/Pay credit card bills`
+**Add**|`add TASKNAME dl/DATE [ds/DESCRIPTION]`|
+**List**|`list`|
+**View**|`view [all,calendar,done,floating,overdue,today,tomorrow,future,unfinished]`|`view all`
+**Edit**|`edit INDEX [TASKNAME] [dl/DATE] [ds/DESCRIPTION]`|`edit 3 buy eggs dl/29-02-2017 ds/as soon as possible`
+**Delete**|`delete INDEX`|`delete 3`
+**Undo**|`undo`|
+**Redo**|`redo`|
+**Find**|`find [KEYWORDS] [ds/KEYWORDS] [dl/DATE]`|`find James Jake`
+**Mark**|`mark INDEX`|`mark 4`
+**Clear**|`clear [all,done]`|`clear all`
+**Sort**|`sort [name,deadline]`|`sort deadline`
+**Set Storage**|`set-storage STORAGE_LOCATION`|`set-storage C:\Users\Public\Documents\Data\ taskmanager.xml`
+**Exit**|`exit`|

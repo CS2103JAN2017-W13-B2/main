@@ -4,17 +4,38 @@ By : `Team SE-EDU`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Jun 2016`  &nbsp;&nbsp;&nbs
 
 ---
 
-1. [Setting Up](#setting-up)
-2. [Design](#design)
-3. [Implementation](#implementation)
-4. [Testing](#testing)
-5. [Dev Ops](#dev-ops)
 
-* [Appendix A: User Stories](#appendix-a--user-stories)
-* [Appendix B: Use Cases](#appendix-b--use-cases)
-* [Appendix C: Non Functional Requirements](#appendix-c--non-functional-requirements)
-* [Appendix D: Glossary](#appendix-d--glossary)
-* [Appendix E : Product Survey](#appendix-e--product-survey)
+1. [Setting Up](#user-content-1-setting-up)  
+1.1. [Prerequisites](#user-content-11-prerequisites)  
+1.2. [Importing the project into Eclipse](#user-content-12-importing-the-project-into-eclipse) 
+1.3. [Configuring Checkstyle](#user-content-13-configuring-checkstyle)  
+1.4. [Troubleshooting project setup](#user-content-14-troubleshooting-project-setup)  
+2. [Design](#user-content-2-design)  
+2.1. [Architecture](#user-content-21-architecture)  
+2.2. [UI component](#user-content-22-ui-component)  
+2.3. [Logic component](#user-content-23-logic-component)  
+2.4. [Model component](#user-content-24-model-component)  
+2.5. [Storage component](#user-content-25-storage-component)  
+2.6. [Common classes](#user-content-26-common-classes)
+3. [Implementation](#user-content-3-implementation)  
+3.1. [Logging](#user-content-31-logging)  
+3.2. [Configuration](#user-content-32-configuration)  
+3.3. [Date handling](#user-content-33-date-handling)
+4. [Testing](#user-content-4-testing)  
+4.1. [Troubleshooting tests](#user-content-41-troubleshooting-tests)  
+5. [Dev Ops](#user-content-5-dev-ops)  
+5.1. [Build Automation](#user-content-51-build-automation)  
+5.2. [Continuous Integration](#user-content-52-continuous-integration)  
+5.3. [Publishing Documentation](#user-content-53-publishing-documentation)  
+5.4. [Making a Release](#user-content-54-making-a-release)  
+5.5. [Converting Documentation to PDF format](#user-content-55-converting-documentation-to-pdf-format)  
+5.6. [Managing Dependencies](#user-content-56-managing-dependencies)
+
+* [Appendix A: User Stories](#user-content-appendix-a-user-stories)
+* [Appendix B: Use Cases](#user-content-appendix-b-use-cases)
+* [Appendix C: Non Functional Requirements](#user-content-appendix-c-non-functional-requirements)
+* [Appendix D: Glossary](#user-content-appendix-d-glossary)
+* [Appendix E : Product Survey](#user-content-appendix-e-product-survey)
 
 
 ## 1. Setting up
@@ -235,10 +256,10 @@ Certain properties of the application can be controlled (e.g App name, logging l
 
 ### 3.3. Date handling
 
-The following diagram explains the relationships between classes in seedu.addressbook.model.task.date, which are responsible for date and time handling.
+The following diagram explains the relationships between classes in `seedu.addressbook.model.task.date`, which are responsible for date and time handling.
 
 <img src="images/DateDiagram.png" width="800"><br>
-_Figure 2.5.1 : Structure of the Storage Component_
+_Figure 2.5.1 : Relationships between classes in Task/Date_
 
 We make use of Natty for parsing dates in natural language.
 
@@ -591,3 +612,38 @@ Cons:
 
 * Requires subscription for unlimited subtasks, file uploads and assignment of tasks
 
+**Google Keep**
+
+Author: Quang Dung
+
+Pros:
+
+* Can schedule tasks and set reminders to notify
+* Can archive tasks
+* Integrated with Google Calendar
+* Can label or assign a color to a task --> Easier to categorize
+* Does not require Internet connection, can automatically sync when connected to the Internet
+* Can tag people to task and share with others
+
+Cons:
+
+* Does not have calendar view
+* Requires clicks to do most things like adding or removing a task
+* Cannot help to prevent schedule clashes
+
+**ToDoist**
+
+Author: Clement
+
+Pros:
+
+* Compatible with Outlook
+* Has a graphical UI
+* Can process Sub tasks and projects
+* Has notifications
+* Can parse dates in natural language
+* Has multiple priority levels
+
+Cons:
+
+* Requires subcription to access premium features

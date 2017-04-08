@@ -20,6 +20,7 @@ public class TaskCardHandle extends GuiHandle {
     private static final String DEADLINE_FIELD_ID = "#deadline";
     private static final String DESCRIPTION_FIELD_ID = "#description";
     private static final String ID_FIELD_ID = "#id";
+    private static final String STATUS_FIELD_ID = "#status";
     private static final String TAGS_FIELD_ID = "#tags";
 
     private Node node;
@@ -43,6 +44,10 @@ public class TaskCardHandle extends GuiHandle {
 
     public String getDescription() {
         return getTextFromLabel(DESCRIPTION_FIELD_ID);
+    }
+
+    public String getStatus() {
+        return getTextFromLabel(STATUS_FIELD_ID);
     }
 
     public String getID() {
@@ -99,5 +104,18 @@ public class TaskCardHandle extends GuiHandle {
     @Override
     public String toString() {
         return getName() + " " + getID();
+    }
+
+    public String getAsText() {
+        final StringBuilder builder = new StringBuilder();
+        builder.append(" Name: ")
+                .append(getName())
+                .append(" Deadline: ")
+                .append(getDeadline())
+                .append(" Description: ")
+                .append(getDescription())
+                .append(" Status: ")
+                .append(getStatus());
+        return builder.toString();
     }
 }

@@ -6,22 +6,22 @@ We are a team based in the [School of Computing, National University of Singapor
 
 #### [Clement Tan](https://github.com/clementtan) <br>
 <img src="images/clementtan.png" width="150"><br>
-Role:  <br>
-Responsibilities: 
+Role:  Documentationem, Testing<br>
+Responsibilities: In charge of Storage component
 
 -----
 
 #### [Marianne Quek Hui Huang](http://github.com/marianne121)
 <img src="images/marianne121.jpg" width="150"><br>
-Role:  <br>
-Responsibilities: 
+Role:  Team lead, Scheduling and tracking<br>
+Responsibilities: In charge of Model component
 
 -----
 
 #### [Quang Dong](http://github.com/nqdung14)
 <img src="images/quangdung.jpg" width="150"><br>
-Role:  <br>
-Responsibilities: 
+Role:  Code quality, Integration<br>
+Responsibilities: In charge of UI, Logic component
 
 -----
 

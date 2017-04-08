@@ -17,7 +17,6 @@ import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
 import seedu.address.model.task.Deadline;
 import seedu.address.model.task.Description;
-import seedu.address.model.task.IdentificationNumber;
 import seedu.address.model.task.Name;
 
 /**
@@ -90,13 +89,15 @@ public class ParserUtil {
         return description.isPresent() ? Optional.of(new Description(description.get())) : Optional.empty();
     }
 
-    /**
+    /*
+    /*
      * Parses a {@code Optional<String> email} into an {@code Optional<Email>} if {@code email} is present.
-     */
+
     public static Optional<IdentificationNumber> parseId(Optional<String> id) throws IllegalValueException {
         assert id != null;
         return id.isPresent() ? Optional.of(new IdentificationNumber(id.get())) : Optional.empty();
     }
+    */
 
     /**
      * Parses {@code Collection<String> tags} into an {@code UniqueTagList}.
