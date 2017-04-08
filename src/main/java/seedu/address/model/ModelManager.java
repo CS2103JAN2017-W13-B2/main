@@ -206,7 +206,7 @@ public class ModelManager extends ComponentManager implements Model {
             return keyWords.stream()
                     .filter(keyword -> StringUtil.containsWordIgnoreCase(task.getName().name, keyword)
                     || StringUtil.containsWordIgnoreCase(task.getDescription().description, keyword)
-                    || StringUtil.containsWordIgnoreCase(task.getTags().getTags(), keyword))
+                    || StringUtil.containsWordIgnoreCase(task.getTags().getTagNames(), keyword))
                     .findAny()
                     .isPresent();
         }

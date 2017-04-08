@@ -158,7 +158,8 @@ public class UniqueTagList implements Iterable<Tag> {
         return internalList.hashCode();
     }
 
-    public String getTags() {
+    /** Returns a string with all the tag names in each task.  */
+    public String getTagNames() {
         String tags = "";
         for (Tag tag:internalList) {
             tags = tags.concat(tag.tagName);
