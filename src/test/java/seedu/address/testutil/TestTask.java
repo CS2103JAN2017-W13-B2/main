@@ -73,6 +73,12 @@ public class TestTask implements ReadOnlyTask {
         return this;
     }
 
+    public TestTask setStatus(String status) {
+        this.status.setStatus(status);
+        updateStatus();
+        return this;
+    }
+
     @Override
     public Status getStatus() {
         return updateStatus();
