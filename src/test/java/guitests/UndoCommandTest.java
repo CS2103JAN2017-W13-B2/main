@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import seedu.address.logic.commands.ClearCommand;
+import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.testutil.TestTask;
 import seedu.address.logic.commands.DeleteCommand;
@@ -30,6 +32,20 @@ public class UndoCommandTest extends TaskManagerGuiTest {
         int targetIndex = 1;
         commandBox.runCommand(DeleteCommand.COMMAND_WORD + " " + targetIndex);
 
+        assertUndoSuccess(expectedList);
+    }
+
+    /**
+     * Tries to undo a clear command
+     */
+    @Test
+    public void undoClear() {
+        commandBox.runCommand("mark 1");
+        commandBox.runCommand("mark 2");
+        commandBox.runCommand(ClearCommand.COMMAND_WORD + " done");
+
+        expectedList[0].setStatus("done");
+        expectedList[0].setStatus("done");
         assertUndoSuccess(expectedList);
     }
 
