@@ -402,7 +402,7 @@ public class LogicManagerTest {
     }
 
     @Test
-    public void return_list_as_array() throws Exception {
+    public void returnListAsArray() throws Exception {
         ArrayList<ReadOnlyTask> array;
         array = model.getList();
         // prepare expectations
@@ -417,7 +417,7 @@ public class LogicManagerTest {
         // prepare address book state
         helper.addToModel(model, 2);
         array = model.getList();
-        int a = 0;
+
         assertEquals(array, arrayToCompare);
 
     }

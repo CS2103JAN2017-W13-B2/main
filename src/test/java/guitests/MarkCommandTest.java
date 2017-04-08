@@ -13,12 +13,13 @@ import seedu.address.testutil.TestTask;
 // TODO: reduce GUI tests by transferring some tests to be covered by lower level tests.
 public class MarkCommandTest extends TaskManagerGuiTest {
 
-    // The list of tasks in the task list panel is expected to match this list.
-    // This list is updated with every successful call to assertMarkSuccess().
-    TestTask[] expectedTasksList = td.getTypicalTasks();
+
 
     @Test
     public void mark() {
+        // The list of tasks in the task list panel is expected to match this list.
+        // This list is updated with every successful call to assertMarkSuccess().
+        TestTask[] expectedTasksList = td.getTypicalTasks();
 
         //mark the first in the list from Undone to Done
         int targetIndex = 1;
@@ -51,13 +52,13 @@ public class MarkCommandTest extends TaskManagerGuiTest {
     }
 
     @Test
-    public void mark_missingTaskIndex_failure() {
+    public void markMissingTaskIndexFailure() {
         commandBox.runCommand("mark Bobby");
         assertResultMessage(String.format(MESSAGE_INVALID_COMMAND_FORMAT, MarkCommand.MESSAGE_USAGE));
     }
 
     @Test
-    public void mark_invalidTaskIndex_failure() {
+    public void markInvalidTaskIndexFailure() {
         commandBox.runCommand("mark 8 Bobby");
         assertResultMessage(String.format(MESSAGE_INVALID_COMMAND_FORMAT, MarkCommand.MESSAGE_USAGE));
     }
