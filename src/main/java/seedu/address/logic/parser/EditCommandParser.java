@@ -51,7 +51,6 @@ public class EditCommandParser {
             }
             //@@author
             editTaskDescriptor.setDescription(ParserUtil.parseDescription(argsTokenizer.getValue(PREFIX_DESCRIPTION)));
-            editTaskDescriptor.setID(ParserUtil.parseId(argsTokenizer.getValue(PREFIX_ID)));
             editTaskDescriptor.setTags(parseTagsForEdit(ParserUtil.toSet(argsTokenizer.getAllValues(PREFIX_TAG))));
         } catch (IllegalValueException ive) {
             return new IncorrectCommand(ive.getMessage());

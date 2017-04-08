@@ -9,7 +9,6 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.tag.UniqueTagList;
 import seedu.address.model.task.Deadline;
 import seedu.address.model.task.Description;
-import seedu.address.model.task.IdentificationNumber;
 import seedu.address.model.task.Name;
 import seedu.address.model.task.ReadOnlyTask;
 import seedu.address.model.task.Task;
@@ -92,7 +91,6 @@ public class EditCommand extends Command {
         private Optional<UniqueTagList> tags = Optional.empty();
         private Optional<Deadline> deadline = Optional.empty();
         private Optional<Description> description = Optional.empty();
-        private Optional<IdentificationNumber> identificationnumber = Optional.empty();
 
         public EditTaskDescriptor() {}
 
@@ -100,7 +98,6 @@ public class EditCommand extends Command {
             this.name = toCopy.getName();
             this.deadline = toCopy.getDeadline();
             this.description = toCopy.getDescription();
-            this.identificationnumber = toCopy.getID();
             this.tags = toCopy.getTags();
         }
 
@@ -109,7 +106,7 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyPresent(this.name, this.deadline, this.description,
-                this.identificationnumber, this.tags);
+                    this.tags);
         }
 
         public void setName(Optional<Name> name) {
@@ -137,15 +134,6 @@ public class EditCommand extends Command {
 
         public Optional<Description> getDescription() {
             return description;
-        }
-
-        public void setID(Optional<IdentificationNumber> identificationnumber) {
-            assert identificationnumber != null;
-            this.identificationnumber = identificationnumber;
-        }
-
-        public Optional<IdentificationNumber> getID() {
-            return identificationnumber;
         }
 
         public void setTags(Optional<UniqueTagList> tags) {
