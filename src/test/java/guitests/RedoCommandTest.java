@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
@@ -86,6 +87,15 @@ public class RedoCommandTest extends TaskManagerGuiTest {
 
         expectedList[targetIndex - 1].setName(new Name("Bobby"));
         assertRedoSuccess(expectedList);
+    }
+
+    /**
+     * Tries to redo a command without a previous undo
+     */
+    @Test
+    public void redoWithoutUndo() {
+        commandBox.runCommand(RedoCommand.COMMAND_WORD);
+        assertResultMessage(String.format(RedoCommand.MESSAGE_NO_CHANGE));
     }
 
     /**
