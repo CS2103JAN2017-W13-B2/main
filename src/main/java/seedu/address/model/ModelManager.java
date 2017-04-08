@@ -212,10 +212,9 @@ public class ModelManager extends ComponentManager implements Model {
                        .findAny()
                        .isPresent())
                     || (keyWords.stream()
-                            .filter(keyword -> StringUtil.containsWordIgnoreCase(
-                                    task.getDeadline().date.toString(), keyword))
-                            .findAny()
-                            .isPresent());
+                       .filter(keyword -> StringUtil.containsWordIgnoreCase(task.getTags().getTags(), keyword))
+                       .findAny()
+                       .isPresent());
         }
 
         @Override
