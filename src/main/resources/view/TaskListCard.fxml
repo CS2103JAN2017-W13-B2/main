@@ -66,7 +66,7 @@
 						<Label fx:id="status" styleClass="cell_small_label" text="\$status" />
 					</children>
 				</FlowPane>
-				<FlowPane HBox.hgrow="ALWAYS" hgap="5">
+				<FlowPane HBox.hgrow="ALWAYS" hgap="5" fx:id="tagsHolder">
 					<padding>
 						<Insets top="7"/>
 					</padding>
