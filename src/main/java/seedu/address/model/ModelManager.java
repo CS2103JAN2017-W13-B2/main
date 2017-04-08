@@ -203,19 +203,12 @@ public class ModelManager extends ComponentManager implements Model {
 
         @Override
         public boolean run(ReadOnlyTask task) {
-            return (keyWords.stream()
-                    .filter(keyword -> StringUtil.containsWordIgnoreCase(task.getName().name, keyword))
+            return keyWords.stream()
+                    .filter(keyword -> StringUtil.containsWordIgnoreCase(task.getName().name, keyword)
+                    || StringUtil.containsWordIgnoreCase(task.getDescription().description, keyword)
+                    || StringUtil.containsWordIgnoreCase(task.getTags().getTagNames(), keyword))
                     .findAny()
-                    .isPresent())
-                    || (keyWords.stream()
-                       .filter(keyword -> StringUtil.containsWordIgnoreCase(task.getDescription().description, keyword))
-                       .findAny()
-                       .isPresent())
-                    || (keyWords.stream()
-                            .filter(keyword -> StringUtil.containsWordIgnoreCase(
-                                    task.getDeadline().date.toString(), keyword))
-                            .findAny()
-                            .isPresent());
+                    .isPresent();
         }
 
         @Override
