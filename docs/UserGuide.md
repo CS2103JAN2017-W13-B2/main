@@ -4,11 +4,11 @@ By : `W13-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Jun 2016`  &nbsp;&nbsp;&nbsp;&nb
 
 ---
 
-1. [About](#about)
-2. [Quick Start](#quick-start)
-3. [Features](#features)
-4. [FAQ](#faq)
-5. [Command Summary](#command-summary)
+1. [About](#user-content-1-about)
+2. [Quick Start](#user-content-2-quick-start)
+3. [Features](#user-content-3-features)
+4. [FAQ](#user-content-4-faq)
+5. [Command Summary](#user-content-5-command-summary)
 
 ## 1. About
 Ever had the feeling that you are forgetting to do something important? Tired of always
@@ -221,39 +221,19 @@ Format: exit
 
 ## 5. Command Summary
 
-* **Help** : `help`
-
-* **Add**  `add TASKNAME dl/DATE [ds/DESCRIPTION]` <br>
-  e.g. `add Make payment dl/01-08-2017 ds/Pay credit card bills`
-
-* **List** : `list` <br>
-
-* **View** : `view [all|calendar|done|floating|overdue|today|tomorrow|future]` <br>
-  e.g. `view all`
-  
-* **Edit** : `edit INDEX [TASKNAME] [dl/DATE] [ds/DESCRIPTION]` <br>
-  e.g. `edit 3 buy eggs dl/29-02-2017 ds/as soon as possible`
-
-* **Delete** : `delete INDEX` <br>
-   e.g. `delete 3`
-   
-* **Undo** : `undo` <br>
-
-* **Redo** : `redo` <br> 
-
-* **Find** : `find [KEYWORDS] [ds/KEYWORDS] [dl/DATE]` <br>
-  e.g. `find James Jake`
-
-* **Mark** : `mark INDEX` <br>
-  e.g. `mark 4`
-
-* **Clear** : `clear all|done` <br>
-  e.g. `clear all`
-
-* **Sort** : `sort name|deadline` <br>
-  e.g. `sort deadline`
-
-* **Set Storage** : `set-storage STORAGE_LOCATION` <br>
-  e.g. `set-storage C:\Users\Public\Documents\Data\taskmanager.xml`
-
-* **Exit** : `exit` <br>
+Command|Format|Example
+-------|:-----|:------
+**Help**|`help`|`add Make payment dl/01-08-2017  ds/Pay credit card bills`
+**Add**|`add TASKNAME dl/DATE [ds/DESCRIPTION]`|
+**List**|`list`|
+**View**|`view [all|calendar|done|floating| overdue|today|tomorrow|future]`|`view all`
+**Edit**|`edit INDEX [TASKNAME] [dl/DATE] [ds/DESCRIPTION]`|`edit 3 buy eggs dl/29-02-2017 ds/as soon as possible`
+**Delete**|`delete INDEX`|`delete 3`
+**Undo**|`undo`|
+**Redo**|`redo`|
+**Find**|`find [KEYWORDS] [ds/KEYWORDS] [dl/DATE]`|`find James Jake`
+**Mark**|`mark INDEX`|`mark 4`
+**Clear**|`clear all|done`|`clear all`
+**Sort**|`sort name|deadline`|`sort deadline`
+**Set Storage**|`set-storage STORAGE_LOCATION`|`set-storage C:\Users\Public\Documents\Data\ taskmanager.xml`
+**Exit**|`exit`|
