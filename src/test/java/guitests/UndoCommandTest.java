@@ -16,9 +16,17 @@ public class UndoCommandTest extends TaskManagerGuiTest {
      * Tries to undo an add command
      */
     @Test
+    public void undoAdd() {
         TestTask taskToAdd = td.alice;
         commandBox.runCommand(taskToAdd.getAddCommand());
         assertUndoSuccess(expectedList);
+    }
+
+    private void assertUndoSuccess(TestTask[] expectedList) {
+        commandBox.runCommand(UndoCommand.COMMAND_WORD);
+        assertTrue(taskListPanel.isListMatching(expectedList));
+        assertResultMessage(String.format(UndoCommand.MESSAGE_SUCCESS));
+
     }
 
 }
