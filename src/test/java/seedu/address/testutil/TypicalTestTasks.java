@@ -60,9 +60,14 @@ public class TypicalTestTasks {
         return new TestTask[]{alice, benson, carl, daniel, elle, fiona, george};
     }
 
-    public TestTask[] getAllTasks() {
-        return new TestTask[]{alice, benson, carl, daniel, elle, fiona, george, hoon, ida};
+    public TestTask[] getUnsortedTasks() {
+        return new TestTask[]{george, fiona, elle, daniel, carl, benson, alice};
     }
+
+    public TestTask[] getSortedByDeadlineTasks() {
+        return new TestTask[]{alice , fiona, benson, elle, carl, daniel, george};
+    }
+
     public TaskManager getTypicalTaskManager() {
         TaskManager ab = new TaskManager();
         loadTaskManagerWithSampleData(ab);
