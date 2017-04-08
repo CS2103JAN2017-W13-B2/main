@@ -53,7 +53,11 @@
 						<Label fx:id="status" styleClass="cell_small_label" text="\$status" />
 					</children>
 				</FlowPane>
-				<FlowPane fx:id="tags" />
+				<FlowPane fx:id="tags">
+					<padding>
+						<Insets top="5"/>
+					</padding>
+				</FlowPane>
 			</children>
 		</VBox>
 	</children>
