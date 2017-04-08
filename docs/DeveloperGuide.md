@@ -5,30 +5,30 @@ By : `Team SE-EDU`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Jun 2016`  &nbsp;&nbsp;&nbs
 ---
 
 1. [Setting Up](#setting-up)
-1.1. [Prerequisites](#prerequisites)
-1.2. [Importing the project into Eclipse](#importing-the-project-into-eclipse)
-1.3. [Configuring Checkstyle](#configuring-checkstyle)
-1.4. [Troubleshooting project setup](#troubleshooting-project-setup)
+  1.1. [Prerequisites](#prerequisites)
+  1.2. [Importing the project into Eclipse](#importing-the-project-into-eclipse)
+  1.3. [Configuring Checkstyle](#configuring-checkstyle)
+  1.4. [Troubleshooting project setup](#troubleshooting-project-setup)
 2. [Design](#design)
-2.1. [Architecture](#architecture)
-2.2. [UI component](#ui-component)
-2.3. [Logic component](#logic-component)
-2.4. [Model component](#model-component)
-2.5. [Storage component](#storage-component)
-2.6. [Common classes](#common-classes)
+  2.1. [Architecture](#architecture)
+  2.2. [UI component](#ui-component)
+  2.3. [Logic component](#logic-component)
+  2.4. [Model component](#model-component)
+  2.5. [Storage component](#storage-component)
+  2.6. [Common classes](#common-classes)
 3. [Implementation](#implementation)
-3.1. [Logging](#logging)
-3.2. [Configuration](#configuration)
-3.3. [Date handling](#date-handling)
+  3.1. [Logging](#logging)
+  3.2. [Configuration](#configuration)
+  3.3. [Date handling](#date-handling)
 4. [Testing](#testing)
-4.1. [Troubleshooting tests](#troubleshooting-tests)
+  4.1. [Troubleshooting tests](#troubleshooting-tests)
 5. [Dev Ops](#dev-ops)
-5.1. [Build Automation](#build-automation)
-5.2. [Continuous Integration](#continuous-integration)
-5.3. [Publishing Documentation](#publishing-documentation)
-5.4. [Making a Release](#making-a-release)
-5.5. [Converting Documentation to PDF format](#converting-documentation-to-pdf-format)
-5.6. [Managing Dependencies](#managing-dependencies)
+  5.1. [Build Automation](#build-automation)
+  5.2. [Continuous Integration](#continuous-integration)
+  5.3. [Publishing Documentation](#publishing-documentation)
+  5.4. [Making a Release](#making-a-release)
+  5.5. [Converting Documentation to PDF format](#converting-documentation-to-pdf-format)
+  5.6. [Managing Dependencies](#managing-dependencies)
 
 * [Appendix A: User Stories](#appendix-a--user-stories)
 * [Appendix B: Use Cases](#appendix-b--use-cases)
@@ -55,13 +55,13 @@ By : `Team SE-EDU`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Jun 2016`  &nbsp;&nbsp;&nbs
 
 ### 1.2. Importing the project into Eclipse
 
-0. Fork this repo, and clone the fork to your computer
-1. Open Eclipse (Note: Ensure you have installed the **e(fx)clipse** and **buildship** plugins as given
+1. Fork this repo, and clone the fork to your computer
+2. Open Eclipse (Note: Ensure you have installed the **e(fx)clipse** and **buildship** plugins as given
    in the prerequisites above)
-2. Click `File` > `Import`
-3. Click `Gradle` > `Gradle Project` > `Next` > `Next`
-4. Click `Browse`, then locate the project's directory
-5. Click `Finish`
+3. Click `File` > `Import`
+4. Click `Gradle` > `Gradle Project` > `Next` > `Next`
+5. Click `Browse`, then locate the project's directory
+6. Click `Finish`
 
   > * If you are asked whether to 'keep' or 'overwrite' config files, choose to 'keep'.
   > * Depending on your connection speed and server load, it can even take up to 30 minutes for the set up to finish
