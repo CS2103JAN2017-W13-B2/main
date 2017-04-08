@@ -256,10 +256,10 @@ Certain properties of the application can be controlled (e.g App name, logging l
 
 ### 3.3. Date handling
 
-The following diagram explains the relationships between classes in seedu.addressbook.model.task.date, which are responsible for date and time handling.
+The following diagram explains the relationships between classes in `seedu.addressbook.model.task.date`, which are responsible for date and time handling.
 
 <img src="images/DateDiagram.png" width="800"><br>
-_Figure 2.5.1 : Structure of the Storage Component_
+_Figure 2.5.1 : Relationships between classes in Task/Date_
 
 We make use of Natty for parsing dates in natural language.
 
