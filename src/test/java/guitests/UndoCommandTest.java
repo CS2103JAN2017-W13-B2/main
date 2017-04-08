@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.MarkCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.testutil.TestTask;
 import seedu.address.logic.commands.DeleteCommand;
@@ -46,6 +47,18 @@ public class UndoCommandTest extends TaskManagerGuiTest {
 
         expectedList[0].setStatus("done");
         expectedList[0].setStatus("done");
+        assertUndoSuccess(expectedList);
+    }
+
+    /**
+     * Tries to undo a mark command
+     */
+    @Test
+    public void undoMark() {
+        int targetIndex = 1;
+        commandBox.runCommand(MarkCommand.COMMAND_WORD + " " + 1);
+
+        expectedList[targetIndex - 1].setStatus("Done");
         assertUndoSuccess(expectedList);
     }
 
