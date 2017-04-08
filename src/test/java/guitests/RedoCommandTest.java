@@ -99,6 +99,15 @@ public class RedoCommandTest extends TaskManagerGuiTest {
     }
 
     /**
+     * Tries to redo a command with an invalid command word
+     */
+    @Test
+    public void redoInvalidCommand() {
+        commandBox.runCommand("rredo");
+        assertResultMessage(String.format(Messages.MESSAGE_UNKNOWN_COMMAND));
+    }
+
+    /**
      * Runs redo command and checks whether the current list matches the expected list
      * @param currentList list before redo command is carried out
      * @param expectedList list after redo command is carried out
