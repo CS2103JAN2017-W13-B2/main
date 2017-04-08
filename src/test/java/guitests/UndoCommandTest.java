@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.MarkCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.testutil.TestTask;
@@ -59,6 +60,18 @@ public class UndoCommandTest extends TaskManagerGuiTest {
         commandBox.runCommand(MarkCommand.COMMAND_WORD + " " + 1);
 
         expectedList[targetIndex - 1].setStatus("Done");
+        assertUndoSuccess(expectedList);
+    }
+
+    /**
+     * Tries to undo an edit command
+     */
+    @Test
+    public void undoEdit() {
+        int targetIndex = 1;
+        String detailsToEdit = "Bobby";
+        commandBox.runCommand(EditCommand.COMMAND_WORD + " " + targetIndex + " " + detailsToEdit);
+
         assertUndoSuccess(expectedList);
     }
 
