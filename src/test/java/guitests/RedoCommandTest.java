@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.MarkCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.testutil.TestTask;
@@ -59,6 +60,19 @@ public class RedoCommandTest extends TaskManagerGuiTest {
 
         expectedList = TestUtil.removeTaskFromList(expectedList, 1);
         expectedList = TestUtil.removeTaskFromList(expectedList, 1);
+        assertRedoSuccess(expectedList);
+    }
+
+    /**
+     * Tries to redo a mark command
+     */
+    @Test
+    public void redoMark() {
+        int targetIndex = 1;
+        commandBox.runCommand(MarkCommand.COMMAND_WORD + " " + 1);
+        commandBox.runCommand(UndoCommand.COMMAND_WORD);
+
+        expectedList[targetIndex - 1].setStatus("Done");
         assertRedoSuccess(expectedList);
     }
 
