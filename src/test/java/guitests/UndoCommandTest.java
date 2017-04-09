@@ -1,3 +1,4 @@
+//@@author A0143504R
 package guitests;
 
 import static org.junit.Assert.assertTrue;
@@ -93,6 +94,10 @@ public class UndoCommandTest extends TaskManagerGuiTest {
         assertResultMessage(String.format(UndoCommand.MESSAGE_NO_CHANGE));
     }
 
+    /**
+     * Runs undo command and checks whether the current list matches the expected list
+     * @param expectedList list after undo command is carried out
+     */
     private void assertUndoSuccess(TestTask[] expectedList) {
         commandBox.runCommand(UndoCommand.COMMAND_WORD);
         assertTrue(taskListPanel.isListMatching(expectedList));

@@ -1,3 +1,4 @@
+//@@author A0143504R
 package guitests;
 
 import static org.junit.Assert.assertTrue;
@@ -109,7 +110,6 @@ public class RedoCommandTest extends TaskManagerGuiTest {
 
     /**
      * Runs redo command and checks whether the current list matches the expected list
-     * @param currentList list before redo command is carried out
      * @param expectedList list after redo command is carried out
      */
     private void assertRedoSuccess(TestTask[] expectedList) {
