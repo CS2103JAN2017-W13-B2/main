@@ -110,7 +110,7 @@ Examples:
 
 You can change the details of a task that you are currently 
 keeping track of with the edit command. If you want remove details 
-from the select task, enter the prefix for the field and leave the 
+from the selected task, enter the prefix for the field and leave the 
 parameter empty.<br>
 Format: edit INDEX [TASKNAME] [dl/DATE&TIME] [ds/DESCRIPTION] [t/TAG][-p]
 
@@ -123,7 +123,7 @@ Examples:
 
 ## 3.6. Delete a task: `delete`
 
-No longer need to do a task? Removes it from the task list 
+No longer need to do a task? Use delete to remove it from the task list 
 to forget about it.<br>
 Format: delete INDEX
 
@@ -146,7 +146,7 @@ Format: redo
 
 ## 3.9. Finding all tasks using keyword or deadline: `find`
 
-Helps you quickly finds tasks whose name, description or tags contain 
+Helps you quickly find tasks whose name, description or tags contain 
 any of the given keywords. The results will come with an index number 
 attached. The search is case insensitive. Also, the order 
 of the keywords does not matter.<br>
@@ -159,7 +159,7 @@ Examples:
 
 ## 3.10. Marking entries as done : `mark`
 
-After completing a task, use this command to mark a task as completed<br>
+Upon completing your tasks, you can use this command to mark the task as completed<br>
 Format: mark INDEX
 
 Examples:
@@ -168,7 +168,8 @@ Examples:
 
 ## 3.11. Clearing all entries : `clear`
 
-Clears your list of tasks to start from a clean slate or remove all tasks that have been marked as done. Be warned, once deleted, the tasks are lost forever (unless you use the undo command).<br>
+Hate long messy lists and want to start from a clean slate? Simply remove all tasks from list
+or clear only those that are done. Be warned, once deleted, the tasks are lost forever (unless you use the undo command).<br>
 Format: clear all|done
 
 Examples:
@@ -178,7 +179,7 @@ Examples:
 
 ## 3.12. Sorting the list of tasks : `sort`
 
-Arranges your tasks in chronological order.<br>
+If you dislike the way the list is sorted, the sort command arranges your tasks in chronological order.<br>
 Format: sort name|deadline
 
 Examples:
@@ -225,7 +226,8 @@ Learn keyboard shortcuts to make your work with Docket much more efficient and p
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with
-       the file that contains the data of your previous Task Manager folder.
+       the file that contains the data of your previous Task Manager folder. You can do this my using
+		the set-storage command. 
 
 ## 6. Command Summary
 
