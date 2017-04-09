@@ -23,10 +23,10 @@ public class RedoCommand extends Command {
         if (!model.getFlag().equals("redo copy")) {
             return new CommandResult(MESSAGE_NO_CHANGE);
         } else {
-            TaskManager temp = new TaskManager(model.getTaskManager());
+            TaskManager previousCopy = new TaskManager(model.getTaskManager());
             model.resetData(model.getCopy());
             model.updateFlag("undo copy");
-            model.updateCopy(temp);
+            model.updateCopy(previousCopy);
             return new CommandResult(MESSAGE_SUCCESS);
         }
     }

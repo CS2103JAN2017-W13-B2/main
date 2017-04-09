@@ -23,10 +23,10 @@ public class UndoCommand extends Command {
         if (!model.getFlag().equals("undo copy")) {
             return new CommandResult(MESSAGE_NO_CHANGE);
         } else {
-            TaskManager temp = new TaskManager(model.getTaskManager());
+            TaskManager previousCopy = new TaskManager(model.getTaskManager());
             model.resetData(model.getCopy());
             model.updateFlag("redo copy");
-            model.updateCopy(temp);
+            model.updateCopy(previousCopy);
             return new CommandResult(MESSAGE_SUCCESS);
         }
     }
