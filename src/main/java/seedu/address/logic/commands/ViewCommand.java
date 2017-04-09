@@ -12,6 +12,9 @@ import seedu.address.model.task.Status;
 
 /**
  * Change the view of UI.
+ *
+ * View groups can be any value of task status plus 3 additional views:
+ *     all, calendar or unfinished.
  */
 public class ViewCommand extends Command {
 
@@ -61,6 +64,7 @@ public class ViewCommand extends Command {
         }
     }
 
+    /* Find the index in view_groups */
     int getIndex(String param) {
         int index = 0;
         for (String viewGroup : VIEW_GROUPS) {

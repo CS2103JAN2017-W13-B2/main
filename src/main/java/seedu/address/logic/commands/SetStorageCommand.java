@@ -10,7 +10,9 @@ import seedu.address.commons.events.storage.StorageFileChangeEvent;
 import seedu.address.logic.commands.exceptions.CommandException;
 
 /**
- * Selects a task identified using it's last displayed index from the address book.
+ * Changes storage file.
+ *
+ * If the provided input is a directory path, default filename (task_manager.xml) will be used.
  */
 public class SetStorageCommand extends Command {
 
@@ -35,7 +37,6 @@ public class SetStorageCommand extends Command {
     public CommandResult execute() throws CommandException {
 
         File file = new File(filePath);
-        System.out.println(filePath);
 
         if (!file.exists()) {
             throw new CommandException(MESSAGE_INVALID_FILE);

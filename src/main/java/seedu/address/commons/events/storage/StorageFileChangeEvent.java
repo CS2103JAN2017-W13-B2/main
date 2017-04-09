@@ -4,7 +4,7 @@ package seedu.address.commons.events.storage;
 import seedu.address.commons.events.BaseEvent;
 
 /**
- * Indicates a request for App termination
+ * Indicates an event when the storage file is changed
  */
 public class StorageFileChangeEvent extends BaseEvent {
 
