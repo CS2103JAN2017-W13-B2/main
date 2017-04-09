@@ -21,7 +21,7 @@ public class UndoCommandTest extends TaskManagerGuiTest {
      * Tries to undo an add command
      */
     @Test
-    public void undoAdd() {
+    public void undo_addCommand() {
         TestTask taskToAdd = td.alice;
         commandBox.runCommand(taskToAdd.getAddCommand());
         assertUndoSuccess(expectedList);
@@ -31,7 +31,7 @@ public class UndoCommandTest extends TaskManagerGuiTest {
      * Tries to undo a delete command
      */
     @Test
-    public void undoDelete() {
+    public void undo_deleteCommand() {
         int targetIndex = 1;
         commandBox.runCommand(DeleteCommand.COMMAND_WORD + " " + targetIndex);
 
@@ -42,7 +42,7 @@ public class UndoCommandTest extends TaskManagerGuiTest {
      * Tries to undo a clear command
      */
     @Test
-    public void undoClear() {
+    public void undo_clearCommand() {
         commandBox.runCommand("mark 1");
         commandBox.runCommand("mark 2");
         commandBox.runCommand(ClearCommand.COMMAND_WORD + " done");
@@ -56,7 +56,7 @@ public class UndoCommandTest extends TaskManagerGuiTest {
      * Tries to undo a mark command
      */
     @Test
-    public void undoMark() {
+    public void undo_markCommand() {
         int targetIndex = 1;
         commandBox.runCommand(MarkCommand.COMMAND_WORD + " " + 1);
 
@@ -68,7 +68,7 @@ public class UndoCommandTest extends TaskManagerGuiTest {
      * Tries to undo an edit command
      */
     @Test
-    public void undoEdit() {
+    public void undo_editCommand() {
         int targetIndex = 1;
         String detailsToEdit = "Bobby";
         commandBox.runCommand(EditCommand.COMMAND_WORD + " " + targetIndex + " " + detailsToEdit);
@@ -80,7 +80,7 @@ public class UndoCommandTest extends TaskManagerGuiTest {
      * Tries to undo a command with an invalid command word
      */
     @Test
-    public void undoInvalidCommand() {
+    public void undo_invalidCommand_fail() {
         commandBox.runCommand("undoo");
         assertResultMessage(String.format(Messages.MESSAGE_UNKNOWN_COMMAND));
     }
@@ -89,7 +89,7 @@ public class UndoCommandTest extends TaskManagerGuiTest {
      * Tries to undo a command without any previous commands
      */
     @Test
-    public void undoWithoutPreviousCommand() {
+    public void undo_noChange_fail() {
         commandBox.runCommand(UndoCommand.COMMAND_WORD);
         assertResultMessage(String.format(UndoCommand.MESSAGE_NO_CHANGE));
     }

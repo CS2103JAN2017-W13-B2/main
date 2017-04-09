@@ -25,7 +25,7 @@ public class RedoCommandTest extends TaskManagerGuiTest {
      * Tries to redo an add command
      */
     @Test
-    public void redoAdd() {
+    public void redo_addCommand() {
         TestTask taskToAdd = td.alice;
         commandBox.runCommand(taskToAdd.getAddCommand());
         commandBox.runCommand(UndoCommand.COMMAND_WORD);
@@ -38,7 +38,7 @@ public class RedoCommandTest extends TaskManagerGuiTest {
      * Tries to redo a delete command
      */
     @Test
-    public void redoDelete() {
+    public void redo_deleteCommand() {
         int targetIndex = 1;
         commandBox.runCommand(DeleteCommand.COMMAND_WORD + " " + targetIndex);
         commandBox.runCommand(UndoCommand.COMMAND_WORD);
@@ -51,7 +51,7 @@ public class RedoCommandTest extends TaskManagerGuiTest {
      * Tries to redo a clear command
      */
     @Test
-    public void redoClear() {
+    public void redo_clearCommand() {
         commandBox.runCommand("mark 1");
         commandBox.runCommand("mark 2");
         commandBox.runCommand(ClearCommand.COMMAND_WORD + " done");
@@ -66,7 +66,7 @@ public class RedoCommandTest extends TaskManagerGuiTest {
      * Tries to redo a mark command
      */
     @Test
-    public void redoMark() {
+    public void redo_markCommand() {
         int targetIndex = 1;
         commandBox.runCommand(MarkCommand.COMMAND_WORD + " " + 1);
         commandBox.runCommand(UndoCommand.COMMAND_WORD);
@@ -80,7 +80,7 @@ public class RedoCommandTest extends TaskManagerGuiTest {
      * @throws IllegalValueException
      */
     @Test
-    public void redoEdit() throws IllegalValueException {
+    public void redo_editCommand() throws IllegalValueException {
         int targetIndex = 1;
         String detailsToEdit = "Bobby";
         commandBox.runCommand(EditCommand.COMMAND_WORD + " " + 1 + " " + detailsToEdit);
@@ -94,7 +94,7 @@ public class RedoCommandTest extends TaskManagerGuiTest {
      * Tries to redo a command with an invalid command word
      */
     @Test
-    public void redoInvalidCommand() {
+    public void redo_invalidCommand_fail() {
         commandBox.runCommand("rredo");
         assertResultMessage(String.format(Messages.MESSAGE_UNKNOWN_COMMAND));
     }
@@ -103,7 +103,7 @@ public class RedoCommandTest extends TaskManagerGuiTest {
      * Tries to redo a command without a previous undo
      */
     @Test
-    public void redoWithoutUndo() {
+    public void redo_noChange_fail() {
         commandBox.runCommand(RedoCommand.COMMAND_WORD);
         assertResultMessage(String.format(RedoCommand.MESSAGE_NO_CHANGE));
     }
