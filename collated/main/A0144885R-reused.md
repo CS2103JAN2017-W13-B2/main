@@ -1,5 +1,5 @@
 # A0144885R-reused
-###### \java\seedu\address\model\task\TaskList.java
+###### /java/seedu/address/model/task/TaskList.java
 ``` java
 package seedu.address.model.task;
 
