@@ -103,7 +103,7 @@ public class ModelManager extends ComponentManager implements Model {
     public String getFlag() {
         return this.flag;
     }
-    //
+    //@@author
     //=========== Filtered Task List Accessors =============================================================
 
     @Override
@@ -161,7 +161,7 @@ public class ModelManager extends ComponentManager implements Model {
     public synchronized void deleteBulkTask(ReadOnlyTask target) throws TaskNotFoundException {
         taskManager.removeTask(target);
     }
-  //@@author A0143504R
+  //@@author
 
     //========== Inner classes/interfaces used for filtering =================================================
 
@@ -217,6 +217,7 @@ public class ModelManager extends ComponentManager implements Model {
         }
     }
 
+    //@@author A0143504R
     private class TaskQualifierByDate implements Qualifier {
         private Deadline deadline;
 
@@ -234,5 +235,6 @@ public class ModelManager extends ComponentManager implements Model {
             return "name=" + String.join(", ", deadline.toString());
         }
     }
+    //@@author
 
 }
