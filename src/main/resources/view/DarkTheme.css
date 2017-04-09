@@ -219,32 +219,32 @@
 }
 
 .status-bar {
-    -fx-background-color: derive(#1d1d1d, 20%);
+    -fx-background-color: #e74c3c;
     -fx-text-fill: black;
 }
 
 .status-bar .label {
     -fx-text-fill: white;
+    -fx-font-size: 15px;
 }
 
 .status-bar-with-border {
-    -fx-background-color: derive(#1d1d1d, 30%);
-    -fx-border-color: derive(#1d1d1d, 25%);
-    -fx-border-width: 1px;
+    -fx-background-color: #e74c3c;
 }
 
 .status-bar-with-border .label {
     -fx-text-fill: white;
+    -fx-font-size: 15px;
 }
 
 .grid-pane {
-    -fx-background-color: derive(#1d1d1d, 30%);
-    -fx-border-color: derive(#1d1d1d, 30%);
-    -fx-border-width: 1px;
+    -fx-background-color: #e74c3c;
+	-fx-text-fill: white;
 }
 
 .grid-pane .anchor-pane {
-    -fx-background-color: derive(#1d1d1d, 30%);
+    -fx-background-color: #e74c3c;
+	-fx-text-fill: white;
 }
 
 .context-menu {
