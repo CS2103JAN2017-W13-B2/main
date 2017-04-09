@@ -42,6 +42,7 @@ By : `Team SE-EDU`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Jun 2016`  &nbsp;&nbsp;&nbs
 
 ### 1.1. Prerequisites
 
+Ensure you have the following programmes:
 1. **JDK `1.8.0_60`**  or later<br>
 
     > Having any Java 8 version is not enough. <br>
@@ -109,8 +110,8 @@ Given below is a quick overview of each component.
 
 `Main` has only one class called [`MainApp`](../src/main/java/seedu/address/MainApp.java). It is responsible for:
 
-* At app launch, initializes the components in the correct sequence, and connects them up with each other.
-* At shut down, shuts down the components and invokes cleanup method where necessary.
+* Upon app launch, initializes the components in the correct sequence, and connects them up with each other.
+* Upon shut down, shuts down the components and invokes cleanup method where necessary.
 * Upon storage file change event, restarts the application.
 
 [**`Commons`**](#common-classes) represents a collection of classes used by multiple other components.
@@ -145,7 +146,7 @@ command `delete 1`.
 <img src="images\SDforDeletePerson.png" width="800"><br>
 _Figure 2.1.3a : Component interactions for `delete 1` command (part 1)_
 
->Note how the `Model` simply raises a `TaskManagerChangedEvent` when the Task Manager data are changed,
+> You can see how the `Model` simply raises a `TaskManagerChangedEvent` when the Task Manager data are changed,
  instead of asking the `Storage` to save the updates to the hard disk.
 
 The diagram below shows how the `EventsCenter` reacts to that event, which eventually results in the updates
@@ -153,11 +154,11 @@ being saved to the hard disk and the status bar of the UI being updated to refle
 <img src="images\SDforDeletePersonEventHandling.png" width="800"><br>
 _Figure 2.1.3b : Component interactions for `delete 1` command (part 2)_
 
-> Note how the event is propagated through the `EventsCenter` to the `Storage` and `UI` without `Model` having
+> You can see how the event is propagated through the `EventsCenter` to the `Storage` and `UI` without `Model` having
   to be coupled to either of them. This is an example of how this Event Driven approach helps us reduce direct
   coupling between components.
 
-The sections below give more details of each component.
+You can read the below sections for more details of each component.
 
 ### 2.2. UI component
 
@@ -267,7 +268,7 @@ The reason to have DateOnly and DateTime is that we need a way to distinguish be
 
 ## 4. Testing
 
-Tests can be found in the `./src/test/java` folder.
+You can find the tests in the `./src/test/java` folder.
 
 **In Eclipse**:
 
@@ -278,7 +279,7 @@ Tests can be found in the `./src/test/java` folder.
 
 **Using Gradle**:
 
-* See [UsingGradle.md](UsingGradle.md) for how to run tests using Gradle.
+* See [UsingGradle.md](UsingGradle.md) to learn how you can run tests using Gradle.
 
 We have two types of tests:
 
@@ -300,7 +301,7 @@ Thanks to the [TestFX](https://github.com/TestFX/TestFX) library we use,
  our GUI tests can be run in the _headless_ mode.
  In the headless mode, GUI tests do not show up on the screen.
  That means the developer can do other things on the Computer while the tests are running.<br>
- See [UsingGradle.md](UsingGradle.md#running-tests) to learn how to run tests in headless mode.
+ See [UsingGradle.md](UsingGradle.md#running-tests) to learn how you can run tests in headless mode.
 
 ### 4.1. Troubleshooting tests
 
@@ -316,7 +317,7 @@ Thanks to the [TestFX](https://github.com/TestFX/TestFX) library we use,
 
 ### 5.1. Build Automation
 
-See [UsingGradle.md](UsingGradle.md) to learn how to use Gradle for build automation.
+See [UsingGradle.md](UsingGradle.md) to learn how you can use Gradle for build automation.
 
 ### 5.2. Continuous Integration
 
@@ -325,7 +326,7 @@ See [UsingTravis.md](UsingTravis.md) and [UsingAppVeyor.md](UsingAppVeyor.md) fo
 
 ### 5.3. Publishing Documentation
 
-See [UsingGithubPages.md](UsingGithubPages.md) to learn how to use GitHub Pages to publish documentation to the
+See [UsingGithubPages.md](UsingGithubPages.md) to learn how you can use GitHub Pages to publish documentation to the
 project site.
 
 ### 5.4. Making a Release
@@ -414,9 +415,7 @@ Priority | As a ... | I want to ... | So that I can...
 **MSS**
 
 1. User requests to add new task
-2. Application asks for confirmation to add new task
-3. User confirms to add new task
-4. Application adds new task
+2. Application adds new task
 Use case ends
 
 **Extensions**
@@ -430,10 +429,6 @@ Use case ends
 
 > Application notifies user that task already exists for the given date
   Use case resumes at step 1
-
-3a.  User cancels add on of new task
-
-> Use case ends
 
 #### Use case: Update task
 
@@ -488,20 +483,29 @@ Use case ends.
 **MSS**
 
 1. User requests to undo most recent command
-2. Application asks for confirmation to undo most recent command
-3. User confirms to undo most recent command
-4. Application undo most recent command
+2. Application undo most recent command
 Use case ends
 
 **Extensions**
 
 1a. There are no most recent commands that changes the data of task list
 
-> Application shows an error message
+> Application shows an error message<br>
 > Use case ends
 
-3a.  User cancels undo most recent command
+#### Use case: Redo command
 
+**MSS**
+
+1. User requests to redo previous recent command
+2. Application redo previous recent command
+Use case ends
+
+**Extensions**
+
+1a. There was no previous undo command to redo
+
+> Application shows an error message<br>
 > Use case ends
 
 #### Use case: Sort tasks list
