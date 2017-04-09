@@ -6,7 +6,7 @@ import java.util.List;
 import seedu.address.commons.events.BaseEvent;
 
 /**
- * Indicates a request to show one task group and hide the current ons.
+ * Indicates a request to change current view
  */
 public class ChangeViewRequestEvent extends BaseEvent {
 
