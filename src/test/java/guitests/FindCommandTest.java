@@ -10,6 +10,7 @@ import seedu.address.testutil.TestTask;
 
 public class FindCommandTest extends TaskManagerGuiTest {
 
+  //@@author A0143504R
     @Test
     public void find_byKeywords() {
         assertFindResult("find Meier", td.benson, td.daniel); // find by name, multiple results
@@ -38,6 +39,7 @@ public class FindCommandTest extends TaskManagerGuiTest {
         assertFindResult("find dl/27 feb 2025", td.benson);
     }
 
+  //@@author
     @Test
     public void find_emptyList() {
         commandBox.runCommand("clear");
