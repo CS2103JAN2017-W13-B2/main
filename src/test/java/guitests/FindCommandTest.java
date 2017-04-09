@@ -12,7 +12,7 @@ public class FindCommandTest extends TaskManagerGuiTest {
 
   //@@author A0143504R
     @Test
-    public void find_Keywords() {
+    public void findByKeywords() {
         assertFindResult("find Meier", td.benson, td.daniel); // find by name, multiple results
         assertFindResult("find friends", td.alice, td.benson); // find by tags, multiple results
         assertFindResult("find find", td.alice, td.benson, td.fiona); // find by description, multiple results
@@ -33,7 +33,7 @@ public class FindCommandTest extends TaskManagerGuiTest {
     }
 
     @Test
-    public void find_Deadline() {
+    public void findByDeadline() {
         assertFindResult("find dl/10/10/2010", td.daniel);
         assertFindResult("find dl/11-11-2011", td.carl);
         assertFindResult("find dl/27 feb 2025", td.benson);
