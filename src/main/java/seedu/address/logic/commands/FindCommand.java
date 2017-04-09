@@ -46,7 +46,7 @@ public class FindCommand extends Command {
         return new CommandResult(getMessageForTaskListShownSummary(model.getFilteredTaskList().size()));
     }
 
-    //@@author A0144885R-reused
+    //@@author A0143504R-reused
     public Deadline createDeadline(String deadline) throws IllegalValueException {
         return (deadline == null ? new Deadline() : new Deadline(deadline));
     }
