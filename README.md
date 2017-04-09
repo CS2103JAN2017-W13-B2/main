@@ -1,4 +1,4 @@
-# Task Manager
+# Docket
 
 [![Build Status](https://travis-ci.org/CS2103JAN2017-W13-B2/main.svg?branch=master)](https://travis-ci.org/CS2103JAN2017-W13-B2/main)
 [![Build status](https://ci.appveyor.com/api/projects/status/4p9m7e9f2evgq3nt/branch/master?svg=true)](https://ci.appveyor.com/project/CS2103JAN2017-W13-B2/main-94dfg/branch/master)
