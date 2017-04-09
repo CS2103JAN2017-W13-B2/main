@@ -15,11 +15,11 @@ public class TypicalTestTasks {
         try {
             alice = new TaskBuilder().withName("Alice Pauline")
                     .withDeadline("12/06/8111")
-                    .withDescription("alice@gmail.com")
+                    .withDescription("alice@gmail.com find")
                     .withTags("friends").build();
             benson = new TaskBuilder().withName("Benson Meier")
                     .withDeadline("27/02/2025")
-                    .withDescription("johnd@gmail.com")
+                    .withDescription("johnd@gmail.com find")
                     .withTags("owesMoney", "friends").build();
             carl = new TaskBuilder().withName("Carl Kurz")
                     .withDescription("heinz@yahoo.com")
@@ -31,7 +31,7 @@ public class TypicalTestTasks {
                     .withDescription("werner@gmail.com")
                     .withDeadline("12/12/2012").build();
             fiona = new TaskBuilder().withName("Fiona Kunz")
-                    .withDescription("lydia@gmail.com")
+                    .withDescription("lydia@gmail.com find")
                     .withDeadline("22/02/2222").build();
             george = new TaskBuilder().withName("George Best")
                     .withDescription("anna@google.com")

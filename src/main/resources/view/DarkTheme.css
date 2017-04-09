@@ -219,7 +219,7 @@
 }
 
 .status-bar {
-    -fx-background-color: #e74c3c;
+    -fx-background-color: #34495E;
     -fx-text-fill: black;
 }
 
@@ -229,7 +229,7 @@
 }
 
 .status-bar-with-border {
-    -fx-background-color: #e74c3c;
+    -fx-background-color: #34495E;
 }
 
 .status-bar-with-border .label {
@@ -238,12 +238,12 @@
 }
 
 .grid-pane {
-    -fx-background-color: #e74c3c;
+    -fx-background-color: #34495E;
 	-fx-text-fill: white;
 }
 
 .grid-pane .anchor-pane {
-    -fx-background-color: #e74c3c;
+    -fx-background-color: #34495E;
 	-fx-text-fill: white;
 }
 
