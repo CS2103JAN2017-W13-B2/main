@@ -32,6 +32,12 @@ public class FindCommandTest extends TaskManagerGuiTest {
     }
 
     @Test
+    public void find_byDeadline() {
+        assertFindResult("find dl/10/10/2010", td.daniel);
+        assertFindResult("find dl/11-11-2011", td.carl);
+        assertFindResult("find dl/27 feb 2025", td.benson);
+    }
+
     @Test
     public void find_emptyList() {
         commandBox.runCommand("clear");
