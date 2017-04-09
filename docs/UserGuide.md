@@ -13,15 +13,15 @@ By : `W13-B2`  &nbsp;&nbsp;&nbsp;&nbsp; Since: `Jun 2016`  &nbsp;&nbsp;&nbsp;&nb
 
 ## 1. About
 Ever had the feeling that you are forgetting to do something important? Tired of always
-forgetting events because you forgot to write them down? Docket is the application that 
-will solve all your problems. 
+forgetting events because you forgot to write them down? Want to keep track of tasks but
+hate carrying pieces of paper around? Docket is the application that will solve all your problems. 
 
 Docket is a simple and lightweight application that will keep track of your tasks for you.
 It will tell you if a task's due date is coming in manner that is quick and easy to understand.
 
-In contrast to other comprehensive task managers out there, Docket is simple and 
-straightforward. It has one mode of input with a boiled down interface. Let's get started
-on simplifying the way you handle tasks now.
+In contrast to other complicated task managers out there, Docket is simple and 
+straightforward. It has one mode of input(a command line input) with a boiled down 
+interface. Let's get started on simplifying the way you handle tasks now.
 
 ## 2. Quick Start
 
@@ -68,7 +68,7 @@ Enter the name, the deadline, and a brief description of the
 task you want to keep track of. There can be more than one tags 
 per task<br>
 Format: add TASKNAME [dl/DATE&TIME] [ds/DESCRIPTION] [t/TAG]
-> Tasks includes:
+> Tasks include:
 > * Event tasks where deadlines include a specific timing
 > * Floating tasks where deadlines are not specified
 > * Normal tasks with deadlines
@@ -83,7 +83,8 @@ Examples:
 
 ## 3.3. Listing all tasks: `list`
 
-Shows you a list of all tasks with an index number attached. 
+Using hte list commands allow you to have an overview of
+all the tasks with an index number attached. 
 This index number is associated with a task as it is seen on the list. 
 You will need this index number to use some of the tasks below.<br>
 Format: list
@@ -133,8 +134,8 @@ Examples:
 
 ## 3.7. Undo a command: `undo`
 
-Made a mistake? Use this command to quickly reverse the 
-changes made with the last command used. <br>
+Your fat fingers got in the way and you accidentally made a mistake? 
+Use this command to quickly reverse the changes made with the last command used. <br>
 Format: undo
 
 ## 3.8. Redo a command: `redo`
@@ -159,7 +160,7 @@ Examples:
 
 ## 3.10. Marking entries as done : `mark`
 
-Upon completing your tasks, you can use this command to mark the task as completed<br>
+Upon completing your tasks, you can use this command to mark the task as completed.<br>
 Format: mark INDEX
 
 Examples:
@@ -168,8 +169,9 @@ Examples:
 
 ## 3.11. Clearing all entries : `clear`
 
-Hate long messy lists and want to start from a clean slate? Simply remove all tasks from list
-or clear only those that are done. Be warned, once deleted, the tasks are lost forever (unless you use the undo command).<br>
+When you want clear your long messy list and start from a clean slate, simply remove all tasks from list
+or clear only those that are done. 
+Be warned, once deleted, the tasks are lost forever (unless you use the undo command).<br>
 Format: clear all|done
 
 Examples:
@@ -226,8 +228,8 @@ Learn keyboard shortcuts to make your work with Docket much more efficient and p
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with
-       the file that contains the data of your previous Task Manager folder. You can do this my using
-		the set-storage command. 
+       the file that contains the data of your previous Task Manager folder. Remember to change the 
+	   data file used by using the set-storage command. 
 
 ## 6. Command Summary
 
