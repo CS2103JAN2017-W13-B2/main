@@ -4,7 +4,7 @@ package seedu.address.logic.commands;
 import seedu.address.model.TaskManager;
 
 /**
- * Redoes a command that was previously undone
+ * Redo a command that was previously undone
  */
 public class RedoCommand extends Command {
 
