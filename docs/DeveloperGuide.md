@@ -103,7 +103,7 @@ Ensure you have the following programmes:
 _Figure 2.1.1 : Architecture Diagram_
 
 The **_Architecture Diagram_** given above explains the high-level design of the App.
-Given below is a quick overview of each component.
+You can refer to the quick overview of each component in the below section.
 
 > Tip: The `.pptx` files used to create diagrams in this document can be found in the [diagrams](diagrams/) folder.
 > To update a diagram, modify the diagram in the pptx file, select the objects of the diagram, and choose `Save as picture`.
@@ -211,6 +211,7 @@ The `Model`
 * stores the Task Manager data.
 * exposes a `UnmodifiableObservableList<ReadOnlyTask>` that can be 'observed' e.g. the UI can be bound to this list
   so that the UI automatically updates when the data in the list change.
+* keeps a copy of the Task Manager data to be used to revert changes.
 * does not depend on any of the other three components.
 
 ### 2.5. Storage component
