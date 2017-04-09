@@ -11,12 +11,6 @@ import seedu.address.testutil.TestTask;
 public class FindCommandTest extends TaskManagerGuiTest {
 
     @Test
-    public void find_nonEmptyList() {
-        assertFindResult("find Mark"); // no results
-        assertFindResult("find Meier", td.benson, td.daniel); // multiple results
-
-        //find after deleting one result
-        commandBox.runCommand("delete 1");
     public void find_byKeywords() {
         assertFindResult("find Meier", td.benson, td.daniel); // find by name, multiple results
         assertFindResult("find friends", td.alice, td.benson); // find by tags, multiple results
