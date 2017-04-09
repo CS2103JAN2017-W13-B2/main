@@ -83,7 +83,7 @@ public class RedoCommandTest extends TaskManagerGuiTest {
     public void redo_editCommand() throws IllegalValueException {
         int targetIndex = 1;
         String detailsToEdit = "Bobby";
-        commandBox.runCommand(EditCommand.COMMAND_WORD + " " + 1 + " " + detailsToEdit);
+        commandBox.runCommand(EditCommand.COMMAND_WORD + " " + targetIndex + " " + detailsToEdit);
         commandBox.runCommand(UndoCommand.COMMAND_WORD);
 
         expectedList[targetIndex - 1].setName(new Name("Bobby"));
