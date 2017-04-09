@@ -4,6 +4,7 @@
 * Rename the sample data file from SampleData.xml to taskmanager.xml
 * Put sample data file, taskmanager.xml into the new data\ folder.
 * Double click Docket.jar to start the application with sample data.
+* Docket will create six sample tasks if the data file is not detected.
  
 ## Keyboard hotkeys
 
