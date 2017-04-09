@@ -146,7 +146,7 @@ Format: redo
 
 ## 3.9. Finding all tasks using keyword or deadline: `find`
 
-Helps you quickly finds tasks whose name or description contain 
+Helps you quickly finds tasks whose name, description or tags contain 
 any of the given keywords. The results will come with an index number 
 attached. The search is case insensitive. Also, the order 
 of the keywords does not matter.<br>
@@ -239,7 +239,7 @@ Command|Format|Example
 **Delete**|`delete INDEX`|`delete 3`
 **Undo**|`undo`|
 **Redo**|`redo`|
-**Find**|`find [KEYWORDS] [ds/KEYWORDS] [dl/DATE]`|`find James Jake`
+**Find**|`find [KEYWORDS] [dl/DATE]`|`find James Jake`
 **Mark**|`mark INDEX`|`mark 4`
 **Clear**|`clear [all,done]`|`clear all`
 **Sort**|`sort [name,deadline]`|`sort deadline`
