@@ -3,6 +3,9 @@ package seedu.address.logic.commands;
 
 import seedu.address.model.TaskManager;
 
+/**
+ * Redoes a command that was previously undone
+ */
 public class RedoCommand extends Command {
 
     public static final String COMMAND_WORD = "redo";
