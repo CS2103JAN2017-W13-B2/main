@@ -209,9 +209,9 @@ The `Model`
 
 * stores a `UserPref` object that represents the user's preferences.
 * stores the Task Manager data.
+* stores a copy of the Task Manager data to be used to revert changes.
 * exposes a `UnmodifiableObservableList<ReadOnlyTask>` that can be 'observed' e.g. the UI can be bound to this list
   so that the UI automatically updates when the data in the list change.
-* keeps a copy of the Task Manager data to be used to revert changes.
 * does not depend on any of the other three components.
 
 ### 2.5. Storage component
